@@ -129,14 +129,15 @@ int main(void) {
   /* USER CODE BEGIN WHILE */
   while (1) {
     /* USER CODE END WHILE */
-	  uint16_t a1 = ReadADC_Blocking(&hadc1);
 
-	      char msg[32];
-	      int len = sprintf(msg, "%u\r\n", a1);
+    uint16_t a1 = ReadADC_Blocking(&hadc1);
 
-	      CDC_Transmit_FS((uint8_t*)msg, len);
+    char msg[32];
+    int len = sprintf(msg, "%u\r\n", a1);
 
-	      HAL_Delay(10);  // ~100 samples/sec
+    CDC_Transmit_FS((uint8_t *)msg, len);
+
+    HAL_Delay(10); // ~100 samples/sec
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
