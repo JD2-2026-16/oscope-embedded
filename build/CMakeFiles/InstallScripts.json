@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/cmake_install.cmake",
+		"/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
