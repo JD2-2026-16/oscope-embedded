@@ -5919,63 +5919,63 @@ LOAD C:/ST/STM32CubeIDE_2.0.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
 LOAD C:/ST/STM32CubeIDE_2.0.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD C:/ST/STM32CubeIDE_2.0.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.100.202509120712/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x00000000    0x19467
- .debug_info    0x00000000     0x1838 ./Core/Src/main.o
- .debug_info    0x00001838     0x138e ./Core/Src/stm32g4xx_hal_msp.o
- .debug_info    0x00002bc6      0x632 ./Core/Src/stm32g4xx_it.o
- .debug_info    0x000031f8      0x168 ./Core/Src/sysmem.o
- .debug_info    0x00003360      0x58e ./Core/Src/system_stm32g4xx.o
- .debug_info    0x000038ee       0x30 ./Core/Startup/startup_stm32g491retx.o
- .debug_info    0x0000391e      0xb29 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_info    0x00004447     0x2063 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
- .debug_info    0x000064aa     0x1d80 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
- .debug_info    0x0000822a      0xd8d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_info    0x00008fb7      0x763 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_info    0x0000971a     0x1610 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
- .debug_info    0x0000ad2a      0x80a ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
- .debug_info    0x0000b534      0x93f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_info    0x0000be73      0xb82 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_info    0x0000c9f5      0xc39 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_info    0x0000d62e     0x2c52 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_info    0x00010280     0x1d95 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_info    0x00012015     0x1577 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
- .debug_info    0x0001358c     0x1124 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_info    0x000146b0      0xb1b ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_info    0x000151cb      0xa57 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_info    0x00015c22      0x720 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_info    0x00016342      0x6d7 ./USB_Device/App/usb_device.o
- .debug_info    0x00016a19      0x8be ./USB_Device/App/usbd_cdc_if.o
- .debug_info    0x000172d7      0x45f ./USB_Device/App/usbd_desc.o
- .debug_info    0x00017736     0x1d31 ./USB_Device/Target/usbd_conf.o
+.debug_info     0x00000000    0x19464
+ .debug_info    0x00000000     0x1835 ./Core/Src/main.o
+ .debug_info    0x00001835     0x138e ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_info    0x00002bc3      0x632 ./Core/Src/stm32g4xx_it.o
+ .debug_info    0x000031f5      0x168 ./Core/Src/sysmem.o
+ .debug_info    0x0000335d      0x58e ./Core/Src/system_stm32g4xx.o
+ .debug_info    0x000038eb       0x30 ./Core/Startup/startup_stm32g491retx.o
+ .debug_info    0x0000391b      0xb29 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_info    0x00004444     0x2063 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_info    0x000064a7     0x1d80 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_info    0x00008227      0xd8d ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_info    0x00008fb4      0x763 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_info    0x00009717     0x1610 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_info    0x0000ad27      0x80a ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_info    0x0000b531      0x93f ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_info    0x0000be70      0xb82 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_info    0x0000c9f2      0xc39 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_info    0x0000d62b     0x2c52 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_info    0x0001027d     0x1d95 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_info    0x00012012     0x1577 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_info    0x00013589     0x1124 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_info    0x000146ad      0xb1b ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_info    0x000151c8      0xa57 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_info    0x00015c1f      0x720 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_info    0x0001633f      0x6d7 ./USB_Device/App/usb_device.o
+ .debug_info    0x00016a16      0x8be ./USB_Device/App/usbd_cdc_if.o
+ .debug_info    0x000172d4      0x45f ./USB_Device/App/usbd_desc.o
+ .debug_info    0x00017733     0x1d31 ./USB_Device/Target/usbd_conf.o
 
-.debug_abbrev   0x00000000     0x3cb1
- .debug_abbrev  0x00000000      0x30c ./Core/Src/main.o
- .debug_abbrev  0x0000030c      0x262 ./Core/Src/stm32g4xx_hal_msp.o
- .debug_abbrev  0x0000056e      0x192 ./Core/Src/stm32g4xx_it.o
- .debug_abbrev  0x00000700       0xbc ./Core/Src/sysmem.o
- .debug_abbrev  0x000007bc      0x11a ./Core/Src/system_stm32g4xx.o
- .debug_abbrev  0x000008d6       0x24 ./Core/Startup/startup_stm32g491retx.o
- .debug_abbrev  0x000008fa      0x271 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_abbrev  0x00000b6b      0x2d3 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
- .debug_abbrev  0x00000e3e      0x2ee ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
- .debug_abbrev  0x0000112c      0x31c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_abbrev  0x00001448      0x1cb ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_abbrev  0x00001613      0x2b9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
- .debug_abbrev  0x000018cc      0x228 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
- .debug_abbrev  0x00001af4      0x22c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_abbrev  0x00001d20      0x2c9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_abbrev  0x00001fe9      0x258 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_abbrev  0x00002241      0x2a7 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_abbrev  0x000024e8      0x2c5 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_abbrev  0x000027ad      0x247 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
- .debug_abbrev  0x000029f4      0x2bc ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_abbrev  0x00002cb0      0x24f ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_abbrev  0x00002eff      0x27e ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_abbrev  0x0000317d      0x1a9 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_abbrev  0x00003326      0x1a4 ./USB_Device/App/usb_device.o
- .debug_abbrev  0x000034ca      0x2ad ./USB_Device/App/usbd_cdc_if.o
- .debug_abbrev  0x00003777      0x20e ./USB_Device/App/usbd_desc.o
- .debug_abbrev  0x00003985      0x32c ./USB_Device/Target/usbd_conf.o
+.debug_abbrev   0x00000000     0x3cb3
+ .debug_abbrev  0x00000000      0x30e ./Core/Src/main.o
+ .debug_abbrev  0x0000030e      0x262 ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_abbrev  0x00000570      0x192 ./Core/Src/stm32g4xx_it.o
+ .debug_abbrev  0x00000702       0xbc ./Core/Src/sysmem.o
+ .debug_abbrev  0x000007be      0x11a ./Core/Src/system_stm32g4xx.o
+ .debug_abbrev  0x000008d8       0x24 ./Core/Startup/startup_stm32g491retx.o
+ .debug_abbrev  0x000008fc      0x271 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_abbrev  0x00000b6d      0x2d3 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_abbrev  0x00000e40      0x2ee ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_abbrev  0x0000112e      0x31c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_abbrev  0x0000144a      0x1cb ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_abbrev  0x00001615      0x2b9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_abbrev  0x000018ce      0x228 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_abbrev  0x00001af6      0x22c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_abbrev  0x00001d22      0x2c9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_abbrev  0x00001feb      0x258 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_abbrev  0x00002243      0x2a7 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_abbrev  0x000024ea      0x2c5 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_abbrev  0x000027af      0x247 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_abbrev  0x000029f6      0x2bc ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_abbrev  0x00002cb2      0x24f ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_abbrev  0x00002f01      0x27e ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_abbrev  0x0000317f      0x1a9 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_abbrev  0x00003328      0x1a4 ./USB_Device/App/usb_device.o
+ .debug_abbrev  0x000034cc      0x2ad ./USB_Device/App/usbd_cdc_if.o
+ .debug_abbrev  0x00003779      0x20e ./USB_Device/App/usbd_desc.o
+ .debug_abbrev  0x00003987      0x32c ./USB_Device/Target/usbd_conf.o
 
 .debug_aranges  0x00000000     0x1768
  .debug_aranges
@@ -6196,89 +6196,89 @@ LOAD C:/ST/STM32CubeIDE_2.0.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x000232d0       0x1c ./USB_Device/App/usbd_desc.o
  .debug_macro   0x000232ec      0x39a ./USB_Device/Target/usbd_conf.o
 
-.debug_line     0x00000000    0x1b6f5
- .debug_line    0x00000000      0xd71 ./Core/Src/main.o
- .debug_line    0x00000d71      0x96a ./Core/Src/stm32g4xx_hal_msp.o
- .debug_line    0x000016db      0x887 ./Core/Src/stm32g4xx_it.o
- .debug_line    0x00001f62      0x58d ./Core/Src/sysmem.o
- .debug_line    0x000024ef      0x82d ./Core/Src/system_stm32g4xx.o
- .debug_line    0x00002d1c       0x7b ./Core/Startup/startup_stm32g491retx.o
- .debug_line    0x00002d97      0xbf9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_line    0x00003990     0x220c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
- .debug_line    0x00005b9c     0x1b84 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
- .debug_line    0x00007720      0xd5e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_line    0x0000847e      0xbd2 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_line    0x00009050     0x1378 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
- .debug_line    0x0000a3c8      0x962 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
- .debug_line    0x0000ad2a      0xd58 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_line    0x0000ba82     0x107c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_line    0x0000cafe     0x12b2 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_line    0x0000ddb0     0x4048 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_line    0x00011df8     0x2091 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_line    0x00013e89     0x107e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
- .debug_line    0x00014f07      0xdec ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_line    0x00015cf3      0xe70 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_line    0x00016b63     0x1107 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_line    0x00017c6a      0xacf ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_line    0x00018739      0xa9b ./USB_Device/App/usb_device.o
- .debug_line    0x000191d4      0xaee ./USB_Device/App/usbd_cdc_if.o
- .debug_line    0x00019cc2      0xb44 ./USB_Device/App/usbd_desc.o
- .debug_line    0x0001a806      0xeef ./USB_Device/Target/usbd_conf.o
+.debug_line     0x00000000    0x1b6f3
+ .debug_line    0x00000000      0xd6f ./Core/Src/main.o
+ .debug_line    0x00000d6f      0x96a ./Core/Src/stm32g4xx_hal_msp.o
+ .debug_line    0x000016d9      0x887 ./Core/Src/stm32g4xx_it.o
+ .debug_line    0x00001f60      0x58d ./Core/Src/sysmem.o
+ .debug_line    0x000024ed      0x82d ./Core/Src/system_stm32g4xx.o
+ .debug_line    0x00002d1a       0x7b ./Core/Startup/startup_stm32g491retx.o
+ .debug_line    0x00002d95      0xbf9 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_line    0x0000398e     0x220c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_line    0x00005b9a     0x1b84 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_line    0x0000771e      0xd5e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_line    0x0000847c      0xbd2 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_line    0x0000904e     0x1378 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_line    0x0000a3c6      0x962 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_line    0x0000ad28      0xd58 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_line    0x0000ba80     0x107c ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_line    0x0000cafc     0x12b2 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_line    0x0000ddae     0x4048 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_line    0x00011df6     0x2091 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_line    0x00013e87     0x107e ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_line    0x00014f05      0xdec ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_line    0x00015cf1      0xe70 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_line    0x00016b61     0x1107 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_line    0x00017c68      0xacf ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_line    0x00018737      0xa9b ./USB_Device/App/usb_device.o
+ .debug_line    0x000191d2      0xaee ./USB_Device/App/usbd_cdc_if.o
+ .debug_line    0x00019cc0      0xb44 ./USB_Device/App/usbd_desc.o
+ .debug_line    0x0001a804      0xeef ./USB_Device/Target/usbd_conf.o
 
-.debug_str      0x00000000    0xe2080
- .debug_str     0x00000000    0xe2080 ./Core/Src/main.o
-                              0xdbaef (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Core/Src/stm32g4xx_hal_msp.o
+.debug_str      0x00000000    0xe20b7
+ .debug_str     0x00000000    0xe20b7 ./Core/Src/main.o
+                              0xdbaee (size before relaxing)
+ .debug_str     0x000e20b7        0x0 ./Core/Src/stm32g4xx_hal_msp.o
                               0xd75ab (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Core/Src/stm32g4xx_it.o
+ .debug_str     0x000e20b7        0x0 ./Core/Src/stm32g4xx_it.o
                               0xd6cdb (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Core/Src/sysmem.o
+ .debug_str     0x000e20b7        0x0 ./Core/Src/sysmem.o
                                0x777a (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Core/Src/system_stm32g4xx.o
+ .debug_str     0x000e20b7        0x0 ./Core/Src/system_stm32g4xx.o
                               0xd697a (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Core/Startup/startup_stm32g491retx.o
+ .debug_str     0x000e20b7        0x0 ./Core/Startup/startup_stm32g491retx.o
                                  0x7c (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
                               0xd7585 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
                               0xd79a7 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
                               0xd794d (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
                               0xd7241 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
                               0xd6b05 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.o
                               0xd70f6 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.o
                               0xd6d32 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
                               0xd6e68 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
                               0xd7073 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
                               0xd70b0 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
                               0xd7e78 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
                               0xd7aec (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
+ .debug_str     0x000e20b7        0x0 ./Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.o
                               0xd6c33 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_str     0x000e20b7        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
                               0xdb851 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_str     0x000e20b7        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
                               0xdb12d (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_str     0x000e20b7        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
                               0xdb07f (size before relaxing)
- .debug_str     0x000e2080        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_str     0x000e20b7        0x0 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
                               0xdaf74 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./USB_Device/App/usb_device.o
+ .debug_str     0x000e20b7        0x0 ./USB_Device/App/usb_device.o
                               0xdb328 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./USB_Device/App/usbd_cdc_if.o
+ .debug_str     0x000e20b7        0x0 ./USB_Device/App/usbd_cdc_if.o
                               0xdb367 (size before relaxing)
- .debug_str     0x000e2080        0x0 ./USB_Device/App/usbd_desc.o
+ .debug_str     0x000e20b7        0x0 ./USB_Device/App/usbd_desc.o
                               0xdae7e (size before relaxing)
- .debug_str     0x000e2080        0x0 ./USB_Device/Target/usbd_conf.o
+ .debug_str     0x000e20b7        0x0 ./USB_Device/Target/usbd_conf.o
                               0xdc2ef (size before relaxing)
 
 .comment        0x00000000       0x43
