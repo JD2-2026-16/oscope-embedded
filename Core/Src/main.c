@@ -19,18 +19,18 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
-#include "encoder.h"
 #include "gpio.h"
-#include "stm32g4xx_hal.h"
 #include "tim.h"
 #include "usb_device.h"
-#include "usbd_cdc_if.h"
-#include <stdint.h>
-#include <stdio.h>
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "buttons.h"
+#include "usbd_cdc_if.h"
+#include <encoder.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stm32g4xx_hal.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,6 +92,25 @@ void USB_Report_Encoders_10ms(void) {
 
   CDC_Transmit_FS((uint8_t *)msg, (uint16_t)n);
 }
+
+void USB_Report_Buttons_20ms(void) {
+  static uint32_t last = 0;
+  uint32_t now = HAL_GetTick();
+  if (now - last < 20)
+    return;
+  last = now;
+
+  // Only print if something changed (optional, but nice)
+  if (!(g_btn1.changed || g_btn2.changed || g_btn3.changed || g_btn4.changed))
+    return;
+
+  char msg[80];
+  int n = snprintf(msg, sizeof msg, "btn:%d,%d,%d,%d\r\n", (int)g_btn1.stable,
+                   (int)g_btn2.stable, (int)g_btn3.stable, (int)g_btn4.stable);
+
+  g_btn1.changed = g_btn2.changed = g_btn3.changed = g_btn4.changed = false;
+  (void)CDC_Transmit_FS((uint8_t *)msg, (uint16_t)n);
+}
 /* USER CODE END 0 */
 
 /**
@@ -134,12 +153,23 @@ int main(void) {
   extern uint8_t CDC_Transmit_FS(uint8_t *Buf, uint16_t Len);
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
   HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
+  Encoders_Init();
+  Buttons_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
-    USB_Report_Encoders_10ms();
+    static uint32_t lastPoll = 0;
+    uint32_t now = HAL_GetTick();
+    if (now != lastPoll) {
+      lastPoll = now;
+      Encoders_Poll_1ms();
+      Buttons_Poll_1ms();
+    }
+
+    // USB_Report_Encoders_10ms();
+    USB_Report_Buttons_20ms();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
