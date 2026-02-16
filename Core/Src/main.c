@@ -28,9 +28,12 @@
 #include "buttons.h"
 #include "usbd_cdc_if.h"
 #include <encoder.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <stm32g4xx_hal.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,6 +54,29 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+static const uint16_t kVdivOptions_mV[] = {200U, 500U, 1000U, 2000U, 5000U};
+static const uint32_t kSdivOptions_us[] = {50U,   100U,  200U,  500U,
+                                           1000U, 2000U, 5000U, 10000U};
+
+typedef struct {
+  uint8_t ch1_enabled;
+  uint8_t ch2_enabled;
+  uint8_t ch1_vdiv_idx;
+  uint8_t ch2_vdiv_idx;
+  uint8_t sdiv_idx;
+} scope_cfg_t;
+
+static scope_cfg_t g_scope_cfg = {
+    .ch1_enabled = 1U,
+    .ch2_enabled = 1U,
+    .ch1_vdiv_idx = 2U, // 1.00 V/div
+    .ch2_vdiv_idx = 2U, // 1.00 V/div
+    .sdiv_idx = 2U,     // 200 us/div
+};
+
+static bool g_scope_cfg_dirty = true;
+static bool g_btn1_prev = false;
+static bool g_btn4_prev = false;
 
 /* USER CODE END PV */
 
@@ -71,6 +97,219 @@ static uint16_t ReadADC_Blocking(ADC_HandleTypeDef *hadc) {
   uint16_t v = (uint16_t)HAL_ADC_GetValue(hadc);
   HAL_ADC_Stop(hadc);
   return v;
+}
+
+static int clamp_idx_with_delta(int current, int delta, int min, int max) {
+  int next = current + delta;
+  if (next < min) {
+    next = min;
+  } else if (next > max) {
+    next = max;
+  }
+  return next;
+}
+
+static int find_nearest_u32_idx(const uint32_t *arr, int count,
+                                uint32_t value) {
+  int best_idx = 0;
+  uint32_t best_err = (arr[0] > value) ? (arr[0] - value) : (value - arr[0]);
+  for (int i = 1; i < count; ++i) {
+    uint32_t err = (arr[i] > value) ? (arr[i] - value) : (value - arr[i]);
+    if (err < best_err) {
+      best_err = err;
+      best_idx = i;
+    }
+  }
+  return best_idx;
+}
+
+static int find_nearest_u16_idx(const uint16_t *arr, int count,
+                                uint32_t value) {
+  int best_idx = 0;
+  uint32_t best_err = (arr[0] > value) ? ((uint32_t)arr[0] - value)
+                                       : (value - (uint32_t)arr[0]);
+  for (int i = 1; i < count; ++i) {
+    uint32_t v = (uint32_t)arr[i];
+    uint32_t err = (v > value) ? (v - value) : (value - v);
+    if (err < best_err) {
+      best_err = err;
+      best_idx = i;
+    }
+  }
+  return best_idx;
+}
+
+static void ScopeCfg_SetVdivIdx(uint8_t channel, uint8_t idx) {
+  uint8_t max_idx =
+      (uint8_t)(sizeof(kVdivOptions_mV) / sizeof(kVdivOptions_mV[0]) - 1U);
+  if (idx > max_idx) {
+    idx = max_idx;
+  }
+
+  if (channel == 1U) {
+    if (g_scope_cfg.ch1_vdiv_idx != idx) {
+      g_scope_cfg.ch1_vdiv_idx = idx;
+      g_scope_cfg_dirty = true;
+    }
+  } else if (channel == 2U) {
+    if (g_scope_cfg.ch2_vdiv_idx != idx) {
+      g_scope_cfg.ch2_vdiv_idx = idx;
+      g_scope_cfg_dirty = true;
+    }
+  }
+}
+
+static void ScopeCfg_SetSdivIdx(uint8_t idx) {
+  uint8_t max_idx =
+      (uint8_t)(sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0]) - 1U);
+  if (idx > max_idx) {
+    idx = max_idx;
+  }
+  if (g_scope_cfg.sdiv_idx != idx) {
+    g_scope_cfg.sdiv_idx = idx;
+    g_scope_cfg_dirty = true;
+  }
+}
+
+void ScopeCtl_OnUsbRx(const uint8_t *buf, uint32_t len) {
+  static char line[64];
+  static uint8_t line_len = 0;
+
+  for (uint32_t i = 0; i < len; ++i) {
+    char c = (char)buf[i];
+    if (c == '\r') {
+      continue;
+    }
+    if (c == '\n') {
+      line[line_len] = '\0';
+      if (line_len > 0U) {
+        uint32_t value = 0U;
+        char *end = NULL;
+        if (strncmp(line, "SET CH1_VDIV_MV ", 16) == 0) {
+          value = (uint32_t)strtoul(&line[16], &end, 10);
+          if ((end != &line[16]) && (*end == '\0')) {
+            int idx = find_nearest_u16_idx(
+                kVdivOptions_mV,
+                (int)(sizeof(kVdivOptions_mV) / sizeof(kVdivOptions_mV[0])),
+                value);
+            ScopeCfg_SetVdivIdx(1U, (uint8_t)idx);
+          }
+        } else if (strncmp(line, "SET CH2_VDIV_MV ", 16) == 0) {
+          value = (uint32_t)strtoul(&line[16], &end, 10);
+          if ((end != &line[16]) && (*end == '\0')) {
+            int idx = find_nearest_u16_idx(
+                kVdivOptions_mV,
+                (int)(sizeof(kVdivOptions_mV) / sizeof(kVdivOptions_mV[0])),
+                value);
+            ScopeCfg_SetVdivIdx(2U, (uint8_t)idx);
+          }
+        } else if (strncmp(line, "SET SDIV_US ", 12) == 0) {
+          value = (uint32_t)strtoul(&line[12], &end, 10);
+          if ((end != &line[12]) && (*end == '\0')) {
+            int idx = find_nearest_u32_idx(
+                kSdivOptions_us,
+                (int)(sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0])),
+                value);
+            ScopeCfg_SetSdivIdx((uint8_t)idx);
+          }
+        }
+      }
+      line_len = 0U;
+      continue;
+    }
+
+    if (line_len < (uint8_t)(sizeof(line) - 1U)) {
+      line[line_len++] = c;
+    } else {
+      line_len = 0U;
+    }
+  }
+}
+
+static void ScopeCtl_FromFrontPanel_1ms(void) {
+  bool changed = false;
+
+  if (g_enc1.delta != 0) {
+    int max_idx =
+        (int)(sizeof(kVdivOptions_mV) / sizeof(kVdivOptions_mV[0])) - 1;
+    int next = clamp_idx_with_delta((int)g_scope_cfg.ch1_vdiv_idx,
+                                    (int)g_enc1.delta, 0, max_idx);
+    if ((uint8_t)next != g_scope_cfg.ch1_vdiv_idx) {
+      g_scope_cfg.ch1_vdiv_idx = (uint8_t)next;
+      changed = true;
+    }
+    g_enc1.delta = 0;
+    g_enc1.dirty = false;
+  }
+
+  if (g_enc4.delta != 0) {
+    int max_idx =
+        (int)(sizeof(kVdivOptions_mV) / sizeof(kVdivOptions_mV[0])) - 1;
+    int next = clamp_idx_with_delta((int)g_scope_cfg.ch2_vdiv_idx,
+                                    (int)g_enc4.delta, 0, max_idx);
+    if ((uint8_t)next != g_scope_cfg.ch2_vdiv_idx) {
+      g_scope_cfg.ch2_vdiv_idx = (uint8_t)next;
+      changed = true;
+    }
+    g_enc4.delta = 0;
+    g_enc4.dirty = false;
+  }
+
+  if (g_enc3.delta != 0) {
+    int max_idx =
+        (int)(sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0])) - 1;
+    int next = clamp_idx_with_delta((int)g_scope_cfg.sdiv_idx,
+                                    (int)g_enc3.delta, 0, max_idx);
+    if ((uint8_t)next != g_scope_cfg.sdiv_idx) {
+      g_scope_cfg.sdiv_idx = (uint8_t)next;
+      changed = true;
+    }
+    g_enc3.delta = 0;
+    g_enc3.dirty = false;
+  }
+
+  // Toggle on press-edge.
+  if (g_btn1.stable && !g_btn1_prev) {
+    g_scope_cfg.ch1_enabled = (uint8_t)!g_scope_cfg.ch1_enabled;
+    changed = true;
+  }
+  if (g_btn4.stable && !g_btn4_prev) {
+    g_scope_cfg.ch2_enabled = (uint8_t)!g_scope_cfg.ch2_enabled;
+    changed = true;
+  }
+  g_btn1_prev = g_btn1.stable;
+  g_btn4_prev = g_btn4.stable;
+
+  if (changed) {
+    g_scope_cfg_dirty = true;
+  }
+}
+
+void USB_Report_ScopeCfg_50ms(void) {
+  static uint32_t last = 0U;
+  uint32_t now = HAL_GetTick();
+  if ((now - last) < 50U) {
+    return;
+  }
+  last = now;
+
+  if (!g_scope_cfg_dirty) {
+    return;
+  }
+
+  char msg[120];
+  int n = snprintf(
+      msg, sizeof(msg),
+      "cfg ch1_en:%u ch2_en:%u ch1_vdiv_mv:%u ch2_vdiv_mv:%u sdiv_us:%lu\r\n",
+      (unsigned)g_scope_cfg.ch1_enabled, (unsigned)g_scope_cfg.ch2_enabled,
+      (unsigned)kVdivOptions_mV[g_scope_cfg.ch1_vdiv_idx],
+      (unsigned)kVdivOptions_mV[g_scope_cfg.ch2_vdiv_idx],
+      (unsigned long)kSdivOptions_us[g_scope_cfg.sdiv_idx]);
+  if (n > 0) {
+    if (CDC_Transmit_FS((uint8_t *)msg, (uint16_t)n) == USBD_OK) {
+      g_scope_cfg_dirty = false;
+    }
+  }
 }
 
 void USB_Report_Encoders_10ms(void) {
@@ -166,10 +405,12 @@ int main(void) {
       lastPoll = now;
       Encoders_Poll_1ms();
       Buttons_Poll_1ms();
+      ScopeCtl_FromFrontPanel_1ms();
     }
 
     // USB_Report_Encoders_10ms();
-    USB_Report_Buttons_20ms();
+    // USB_Report_Buttons_20ms();
+    USB_Report_ScopeCfg_50ms();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
