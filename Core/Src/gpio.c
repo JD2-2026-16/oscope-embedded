@@ -33,13 +33,14 @@
 /* USER CODE END 1 */
 
 /** Configure pins as
- * Analog
- * Input
- * Output
- * EVENT_OUT
- * EXTI
- */
-void MX_GPIO_Init(void) {
+        * Analog
+        * Input
+        * Output
+        * EVENT_OUT
+        * EXTI
+*/
+void MX_GPIO_Init(void)
+{
 
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -66,10 +67,11 @@ void MX_GPIO_Init(void) {
   HAL_GPIO_Init(Button_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ButtonC10_Pin ButtonC11_Pin ButtonC12_Pin */
-  GPIO_InitStruct.Pin = ButtonC10_Pin | ButtonC11_Pin | ButtonC12_Pin;
+  GPIO_InitStruct.Pin = ButtonC10_Pin|ButtonC11_Pin|ButtonC12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 2 */

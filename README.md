@@ -1,3 +1,3 @@
 # oscope-embedded
 
-Junior Design II oscilloscope project microcontrolled code
+Junior Design II oscilloscope project microcontroller code

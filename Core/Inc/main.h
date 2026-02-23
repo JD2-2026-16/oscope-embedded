@@ -67,7 +67,14 @@ void Error_Handler(void);
 #define ButtonC12_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
-
+typedef struct {
+  uint8_t ch1_enabled;
+  uint8_t ch2_enabled;
+  uint8_t ch1_vdiv_idx;
+  uint8_t ch2_vdiv_idx;
+  uint8_t sdiv_idx;
+  uint8_t trig_idx;
+} scope_cfg_t;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
