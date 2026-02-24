@@ -1056,7 +1056,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .debug_macro   0x00000000      0x321 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .debug_line    0x00000000      0xb28 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
- .debug_str     0x00000000    0xd6c7d cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
+ .debug_str     0x00000000    0xd6ca0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .debug_frame   0x00000000      0x21c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash.c.obj
  .ARM.attributes
@@ -1198,7 +1198,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .debug_macro   0x00000000      0x321 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .debug_line    0x00000000      0xdc5 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
- .debug_str     0x00000000    0xd6d7b cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
+ .debug_str     0x00000000    0xd6d9e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .debug_frame   0x00000000      0x344 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ex.c.obj
  .ARM.attributes
@@ -1297,7 +1297,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
  .debug_macro   0x00000000      0x321 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
  .debug_line    0x00000000      0x798 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
- .debug_str     0x00000000    0xd68bd cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
+ .debug_str     0x00000000    0xd68e0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
  .debug_frame   0x00000000       0x50 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c.obj
  .ARM.attributes
@@ -1506,7 +1506,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
  .debug_macro   0x00000000      0x321 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
  .debug_line    0x00000000      0xaec cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
- .debug_str     0x00000000    0xd6a77 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
+ .debug_str     0x00000000    0xd6a9a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
  .debug_frame   0x00000000      0x174 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_exti.c.obj
  .ARM.attributes
@@ -1715,7 +1715,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
  .debug_macro   0x00000000      0x321 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
  .debug_line    0x00000000      0x926 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
- .debug_str     0x00000000    0xd6c94 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
+ .debug_str     0x00000000    0xd6cb7 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
  .debug_frame   0x00000000       0xd4 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c.obj
  .ARM.attributes
@@ -1845,7 +1845,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
  .debug_macro   0x00000000      0x321 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
  .debug_line    0x00000000      0x941 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
- .debug_str     0x00000000    0xd6d4d cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
+ .debug_str     0x00000000    0xd6d70 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
  .debug_frame   0x00000000      0x230 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr.c.obj
  .ARM.attributes
@@ -2473,7 +2473,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x11 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
  .debug_macro   0x00000000      0xaea cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
  .debug_line    0x00000000       0x8e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
- .debug_str     0x00000000     0x2ef7 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
+ .debug_str     0x00000000     0x2f1a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
  .comment       0x00000000       0x46 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
  .ARM.attributes
                 0x00000000       0x34 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_adc.c.obj
@@ -4163,9 +4163,9 @@ Discarded input sections
  .data          0x00000000        0x0 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .rodata.kVdivOptions_mV
-                0x00000000        0xc CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
+                0x00000000       0x1c CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .rodata.kSdivOptions_us
-                0x00000000       0x20 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
+                0x00000000       0x38 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .rodata        0x00000000       0x3e CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .text.USB_Report_Encoders_10ms
                 0x00000000       0xe0 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
@@ -5060,7 +5060,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x4ee CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_macro   0x00000000      0x321 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_macro   0x00000000       0x34 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_macro   0x00000000       0x6a CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_macro   0x00000000       0x76 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_macro   0x00000000       0x7b CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_macro   0x00000000       0x2a CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_macro   0x00000000       0x3c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
@@ -5139,7 +5139,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x6a CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
  .debug_macro   0x00000000      0x1df CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
  .debug_line    0x00000000      0x2ec CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
- .debug_str     0x00000000     0x718b CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
+ .debug_str     0x00000000     0x71ae CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
  .comment       0x00000000       0x46 CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
  .debug_frame   0x00000000       0x34 CMakeFiles/JD2_real.dir/Core/Src/sysmem.c.obj
  .ARM.attributes
@@ -5270,7 +5270,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x16 CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
  .debug_macro   0x00000000       0xce CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
  .debug_line    0x00000000      0x610 CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
- .debug_str     0x00000000     0x9491 CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
+ .debug_str     0x00000000     0x94b4 CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
  .comment       0x00000000       0x46 CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
  .debug_frame   0x00000000      0x2ac CMakeFiles/JD2_real.dir/Core/Src/syscalls.c.obj
  .ARM.attributes
@@ -6166,7 +6166,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x08000000                g_pfnVectors
                 0x080001d8                        . = ALIGN (0x4)
 
-.text           0x080001d8     0xabe0
+.text           0x080001d8     0xae34
                 0x080001d8                        . = ALIGN (0x4)
  *(.text)
  *(.text*)
@@ -6810,223 +6810,225 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x0800a4ec       0x48 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
                 0x0800a4ec                HAL_MspInit
  .text.diff16   0x0800a534       0x24 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .text.normalize_step_delta
+                0x0800a558       0x48 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
  .text.Encoders_Init
-                0x0800a558       0x78 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
-                0x0800a558                Encoders_Init
+                0x0800a5a0       0xac CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+                0x0800a5a0                Encoders_Init
  .text.Encoders_Poll_1ms
-                0x0800a5d0      0x180 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
-                0x0800a5d0                Encoders_Poll_1ms
+                0x0800a64c      0x1d0 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+                0x0800a64c                Encoders_Poll_1ms
  .text.raw_pressed
-                0x0800a750       0x2a CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x0800a81c       0x2a CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
  .text.debounce
-                0x0800a77a       0x6a CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x0800a846       0x6a CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
  .text.Buttons_Init
-                0x0800a7e4        0xc CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                0x0800a7e4                Buttons_Init
+                0x0800a8b0        0xc CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x0800a8b0                Buttons_Init
  .text.Buttons_Poll_1ms
-                0x0800a7f0       0x70 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                0x0800a7f0                Buttons_Poll_1ms
+                0x0800a8bc       0x70 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x0800a8bc                Buttons_Poll_1ms
  .text.ScopeStream_Init
-                0x0800a860       0x74 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
-                0x0800a860                ScopeStream_Init
+                0x0800a92c       0x74 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x0800a92c                ScopeStream_Init
  .text.ScopeStream_Task
-                0x0800a8d4      0x15c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
-                0x0800a8d4                ScopeStream_Task
+                0x0800a9a0      0x1bc CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x0800a9a0                ScopeStream_Task
  .text.ScopeStream_GetDecimationShift
-                0x0800aa30       0x34 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x0800ab5c       0x34 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .text.ScopeStream_GetAdcWriteIndex
-                0x0800aa64       0x3c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x0800ab90       0x3c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .text.ScopeStream_CopyLatestInterleaved
-                0x0800aaa0      0x104 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x0800abcc      0x22c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .text.Reset_Handler
-                0x0800aba4       0x50 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
-                0x0800aba4                Reset_Handler
+                0x0800adf8       0x50 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+                0x0800adf8                Reset_Handler
  .text.Default_Handler
-                0x0800abf4        0x2 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
-                0x0800abf4                TIM1_BRK_TIM15_IRQHandler
-                0x0800abf4                EXTI2_IRQHandler
-                0x0800abf4                TIM8_TRG_COM_IRQHandler
-                0x0800abf4                TIM8_CC_IRQHandler
-                0x0800abf4                TIM1_CC_IRQHandler
-                0x0800abf4                USB_HP_IRQHandler
-                0x0800abf4                CORDIC_IRQHandler
-                0x0800abf4                DMA2_Channel8_IRQHandler
-                0x0800abf4                EXTI3_IRQHandler
-                0x0800abf4                I2C3_ER_IRQHandler
-                0x0800abf4                EXTI0_IRQHandler
-                0x0800abf4                I2C2_EV_IRQHandler
-                0x0800abf4                FPU_IRQHandler
-                0x0800abf4                FDCAN1_IT1_IRQHandler
-                0x0800abf4                TIM1_UP_TIM16_IRQHandler
-                0x0800abf4                ADC1_2_IRQHandler
-                0x0800abf4                SPI1_IRQHandler
-                0x0800abf4                TIM6_DAC_IRQHandler
-                0x0800abf4                TIM8_UP_IRQHandler
-                0x0800abf4                DMA2_Channel2_IRQHandler
-                0x0800abf4                DMA1_Channel4_IRQHandler
-                0x0800abf4                TIM20_TRG_COM_IRQHandler
-                0x0800abf4                USART3_IRQHandler
-                0x0800abf4                DMA1_Channel7_IRQHandler
-                0x0800abf4                UART5_IRQHandler
-                0x0800abf4                ADC3_IRQHandler
-                0x0800abf4                TIM4_IRQHandler
-                0x0800abf4                DMA2_Channel1_IRQHandler
-                0x0800abf4                QUADSPI_IRQHandler
-                0x0800abf4                I2C1_EV_IRQHandler
-                0x0800abf4                DMA1_Channel6_IRQHandler
-                0x0800abf4                UART4_IRQHandler
-                0x0800abf4                DMA2_Channel4_IRQHandler
-                0x0800abf4                TIM3_IRQHandler
-                0x0800abf4                RCC_IRQHandler
-                0x0800abf4                TIM20_UP_IRQHandler
-                0x0800abf4                Default_Handler
-                0x0800abf4                DMA2_Channel7_IRQHandler
-                0x0800abf4                RTC_TAMP_LSECSS_IRQHandler
-                0x0800abf4                FMAC_IRQHandler
-                0x0800abf4                EXTI15_10_IRQHandler
-                0x0800abf4                DMA1_Channel8_IRQHandler
-                0x0800abf4                TIM7_IRQHandler
-                0x0800abf4                UCPD1_IRQHandler
-                0x0800abf4                I2C3_EV_IRQHandler
-                0x0800abf4                EXTI9_5_IRQHandler
-                0x0800abf4                RTC_WKUP_IRQHandler
-                0x0800abf4                PVD_PVM_IRQHandler
-                0x0800abf4                SPI2_IRQHandler
-                0x0800abf4                DMA2_Channel5_IRQHandler
-                0x0800abf4                CRS_IRQHandler
-                0x0800abf4                DMA1_Channel5_IRQHandler
-                0x0800abf4                EXTI4_IRQHandler
-                0x0800abf4                RNG_IRQHandler
-                0x0800abf4                TIM1_TRG_COM_TIM17_IRQHandler
-                0x0800abf4                FDCAN2_IT1_IRQHandler
-                0x0800abf4                DMA1_Channel3_IRQHandler
-                0x0800abf4                WWDG_IRQHandler
-                0x0800abf4                FDCAN2_IT0_IRQHandler
-                0x0800abf4                LPUART1_IRQHandler
-                0x0800abf4                DMA2_Channel6_IRQHandler
-                0x0800abf4                FDCAN1_IT0_IRQHandler
-                0x0800abf4                TIM2_IRQHandler
-                0x0800abf4                COMP1_2_3_IRQHandler
-                0x0800abf4                EXTI1_IRQHandler
-                0x0800abf4                USART2_IRQHandler
-                0x0800abf4                TIM20_BRK_IRQHandler
-                0x0800abf4                I2C2_ER_IRQHandler
-                0x0800abf4                TIM8_BRK_IRQHandler
-                0x0800abf4                FLASH_IRQHandler
-                0x0800abf4                TIM20_CC_IRQHandler
-                0x0800abf4                USART1_IRQHandler
-                0x0800abf4                SPI3_IRQHandler
-                0x0800abf4                I2C1_ER_IRQHandler
-                0x0800abf4                LPTIM1_IRQHandler
-                0x0800abf4                DMAMUX_OVR_IRQHandler
-                0x0800abf4                USBWakeUp_IRQHandler
-                0x0800abf4                SAI1_IRQHandler
-                0x0800abf4                DMA2_Channel3_IRQHandler
-                0x0800abf4                COMP4_IRQHandler
-                0x0800abf4                RTC_Alarm_IRQHandler
- *fill*         0x0800abf6        0x2 
- .text.memset   0x0800abf8       0x88 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-memset.o)
-                0x0800abf8                memset
+                0x0800ae48        0x2 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+                0x0800ae48                TIM1_BRK_TIM15_IRQHandler
+                0x0800ae48                EXTI2_IRQHandler
+                0x0800ae48                TIM8_TRG_COM_IRQHandler
+                0x0800ae48                TIM8_CC_IRQHandler
+                0x0800ae48                TIM1_CC_IRQHandler
+                0x0800ae48                USB_HP_IRQHandler
+                0x0800ae48                CORDIC_IRQHandler
+                0x0800ae48                DMA2_Channel8_IRQHandler
+                0x0800ae48                EXTI3_IRQHandler
+                0x0800ae48                I2C3_ER_IRQHandler
+                0x0800ae48                EXTI0_IRQHandler
+                0x0800ae48                I2C2_EV_IRQHandler
+                0x0800ae48                FPU_IRQHandler
+                0x0800ae48                FDCAN1_IT1_IRQHandler
+                0x0800ae48                TIM1_UP_TIM16_IRQHandler
+                0x0800ae48                ADC1_2_IRQHandler
+                0x0800ae48                SPI1_IRQHandler
+                0x0800ae48                TIM6_DAC_IRQHandler
+                0x0800ae48                TIM8_UP_IRQHandler
+                0x0800ae48                DMA2_Channel2_IRQHandler
+                0x0800ae48                DMA1_Channel4_IRQHandler
+                0x0800ae48                TIM20_TRG_COM_IRQHandler
+                0x0800ae48                USART3_IRQHandler
+                0x0800ae48                DMA1_Channel7_IRQHandler
+                0x0800ae48                UART5_IRQHandler
+                0x0800ae48                ADC3_IRQHandler
+                0x0800ae48                TIM4_IRQHandler
+                0x0800ae48                DMA2_Channel1_IRQHandler
+                0x0800ae48                QUADSPI_IRQHandler
+                0x0800ae48                I2C1_EV_IRQHandler
+                0x0800ae48                DMA1_Channel6_IRQHandler
+                0x0800ae48                UART4_IRQHandler
+                0x0800ae48                DMA2_Channel4_IRQHandler
+                0x0800ae48                TIM3_IRQHandler
+                0x0800ae48                RCC_IRQHandler
+                0x0800ae48                TIM20_UP_IRQHandler
+                0x0800ae48                Default_Handler
+                0x0800ae48                DMA2_Channel7_IRQHandler
+                0x0800ae48                RTC_TAMP_LSECSS_IRQHandler
+                0x0800ae48                FMAC_IRQHandler
+                0x0800ae48                EXTI15_10_IRQHandler
+                0x0800ae48                DMA1_Channel8_IRQHandler
+                0x0800ae48                TIM7_IRQHandler
+                0x0800ae48                UCPD1_IRQHandler
+                0x0800ae48                I2C3_EV_IRQHandler
+                0x0800ae48                EXTI9_5_IRQHandler
+                0x0800ae48                RTC_WKUP_IRQHandler
+                0x0800ae48                PVD_PVM_IRQHandler
+                0x0800ae48                SPI2_IRQHandler
+                0x0800ae48                DMA2_Channel5_IRQHandler
+                0x0800ae48                CRS_IRQHandler
+                0x0800ae48                DMA1_Channel5_IRQHandler
+                0x0800ae48                EXTI4_IRQHandler
+                0x0800ae48                RNG_IRQHandler
+                0x0800ae48                TIM1_TRG_COM_TIM17_IRQHandler
+                0x0800ae48                FDCAN2_IT1_IRQHandler
+                0x0800ae48                DMA1_Channel3_IRQHandler
+                0x0800ae48                WWDG_IRQHandler
+                0x0800ae48                FDCAN2_IT0_IRQHandler
+                0x0800ae48                LPUART1_IRQHandler
+                0x0800ae48                DMA2_Channel6_IRQHandler
+                0x0800ae48                FDCAN1_IT0_IRQHandler
+                0x0800ae48                TIM2_IRQHandler
+                0x0800ae48                COMP1_2_3_IRQHandler
+                0x0800ae48                EXTI1_IRQHandler
+                0x0800ae48                USART2_IRQHandler
+                0x0800ae48                TIM20_BRK_IRQHandler
+                0x0800ae48                I2C2_ER_IRQHandler
+                0x0800ae48                TIM8_BRK_IRQHandler
+                0x0800ae48                FLASH_IRQHandler
+                0x0800ae48                TIM20_CC_IRQHandler
+                0x0800ae48                USART1_IRQHandler
+                0x0800ae48                SPI3_IRQHandler
+                0x0800ae48                I2C1_ER_IRQHandler
+                0x0800ae48                LPTIM1_IRQHandler
+                0x0800ae48                DMAMUX_OVR_IRQHandler
+                0x0800ae48                USBWakeUp_IRQHandler
+                0x0800ae48                SAI1_IRQHandler
+                0x0800ae48                DMA2_Channel3_IRQHandler
+                0x0800ae48                COMP4_IRQHandler
+                0x0800ae48                RTC_Alarm_IRQHandler
+ *fill*         0x0800ae4a        0x2 
+ .text.memset   0x0800ae4c       0x88 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-memset.o)
+                0x0800ae4c                memset
  .text.__libc_init_array
-                0x0800ac80       0x4c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-init.o)
-                0x0800ac80                __libc_init_array
+                0x0800aed4       0x4c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-init.o)
+                0x0800aed4                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x0800accc        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
-                0x0800accc                __retarget_lock_acquire_recursive
+                0x0800af20        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
+                0x0800af20                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0800acd0        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
-                0x0800acd0                __retarget_lock_release_recursive
+                0x0800af24        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
+                0x0800af24                __retarget_lock_release_recursive
  .text.startup.register_fini
-                0x0800acd4       0x14 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
- .text.atexit   0x0800ace8        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-atexit.o)
-                0x0800ace8                atexit
+                0x0800af28       0x14 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
+ .text.atexit   0x0800af3c        0xc /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-atexit.o)
+                0x0800af3c                atexit
  .text.__libc_fini_array
-                0x0800acf4       0x28 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-fini.o)
-                0x0800acf4                __libc_fini_array
+                0x0800af48       0x28 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-fini.o)
+                0x0800af48                __libc_fini_array
  .text.__register_exitproc
-                0x0800ad1c       0x84 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__atexit.o)
-                0x0800ad1c                __register_exitproc
+                0x0800af70       0x84 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__atexit.o)
+                0x0800af70                __register_exitproc
  *(.glue_7)
- .glue_7        0x0800ada0        0x0 linker stubs
+ .glue_7        0x0800aff4        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800ada0        0x0 linker stubs
+ .glue_7t       0x0800aff4        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800ada0        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x0800aff4        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x0800ada0        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800ada0                _init
- .init          0x0800ada4        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x0800aff4        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800aff4                _init
+ .init          0x0800aff8        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x0800adac        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x0800adac                _fini
- .fini          0x0800adb0        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
-                0x0800adb8                        . = ALIGN (0x4)
-                0x0800adb8                        _etext = .
+ .fini          0x0800b000        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800b000                _fini
+ .fini          0x0800b004        0x8 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0800b00c                        . = ALIGN (0x4)
+                0x0800b00c                        _etext = .
 
-.vfp11_veneer   0x0800adb8        0x0
- .vfp11_veneer  0x0800adb8        0x0 linker stubs
+.vfp11_veneer   0x0800b00c        0x0
+ .vfp11_veneer  0x0800b00c        0x0 linker stubs
 
-.v4_bx          0x0800adb8        0x0
- .v4_bx         0x0800adb8        0x0 linker stubs
+.v4_bx          0x0800b00c        0x0
+ .v4_bx         0x0800b00c        0x0 linker stubs
 
-.iplt           0x0800adb8        0x0
- .iplt          0x0800adb8        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x0800b00c        0x0
+ .iplt          0x0800b00c        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0800adb8       0x58
-                0x0800adb8                        . = ALIGN (0x4)
+.rodata         0x0800b00c       0x58
+                0x0800b00c                        . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0800adb8       0x46 CMakeFiles/JD2_real.dir/USB_Device/App/usbd_desc.c.obj
+ .rodata        0x0800b00c       0x46 CMakeFiles/JD2_real.dir/USB_Device/App/usbd_desc.c.obj
  *(.rodata*)
- *fill*         0x0800adfe        0x2 
+ *fill*         0x0800b052        0x2 
  .rodata.AHBPrescTable
-                0x0800ae00       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
-                0x0800ae00                AHBPrescTable
-                0x0800ae10                        . = ALIGN (0x4)
+                0x0800b054       0x10 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
+                0x0800b054                AHBPrescTable
+                0x0800b064                        . = ALIGN (0x4)
 
-.ARM.extab      0x0800ae10        0x0
-                0x0800ae10                        . = ALIGN (0x4)
+.ARM.extab      0x0800b064        0x0
+                0x0800b064                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800ae10                        . = ALIGN (0x4)
+                0x0800b064                        . = ALIGN (0x4)
 
-.ARM            0x0800ae10        0x0
-                0x0800ae10                        . = ALIGN (0x4)
-                0x0800ae10                        __exidx_start = .
+.ARM            0x0800b064        0x0
+                0x0800b064                        . = ALIGN (0x4)
+                0x0800b064                        __exidx_start = .
  *(.ARM.exidx*)
-                0x0800ae10                        __exidx_end = .
-                0x0800ae10                        . = ALIGN (0x4)
+                0x0800b064                        __exidx_end = .
+                0x0800b064                        . = ALIGN (0x4)
 
-.preinit_array  0x0800ae10        0x0
-                0x0800ae10                        . = ALIGN (0x4)
-                0x0800ae10                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800b064        0x0
+                0x0800b064                        . = ALIGN (0x4)
+                0x0800b064                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800ae10                        PROVIDE (__preinit_array_end = .)
-                0x0800ae10                        . = ALIGN (0x4)
+                0x0800b064                        PROVIDE (__preinit_array_end = .)
+                0x0800b064                        . = ALIGN (0x4)
 
-.init_array     0x0800ae10        0x8
-                0x0800ae10                        . = ALIGN (0x4)
-                0x0800ae10                        PROVIDE (__init_array_start = .)
+.init_array     0x0800b064        0x8
+                0x0800b064                        . = ALIGN (0x4)
+                0x0800b064                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x0800ae10        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
+                0x0800b064        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0800ae14        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0800ae18                        PROVIDE (__init_array_end = .)
-                0x0800ae18                        . = ALIGN (0x4)
+ .init_array    0x0800b068        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800b06c                        PROVIDE (__init_array_end = .)
+                0x0800b06c                        . = ALIGN (0x4)
 
-.fini_array     0x0800ae18        0x4
-                0x0800ae18                        . = ALIGN (0x4)
-                0x0800ae18                        PROVIDE (__fini_array_start = .)
+.fini_array     0x0800b06c        0x4
+                0x0800b06c                        . = ALIGN (0x4)
+                0x0800b06c                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0800ae18        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x0800ae1c                        PROVIDE (__fini_array_end = .)
-                0x0800ae1c                        . = ALIGN (0x4)
-                0x0800ae1c                        _sidata = LOADADDR (.data)
+ .fini_array    0x0800b06c        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x0800b070                        PROVIDE (__fini_array_end = .)
+                0x0800b070                        . = ALIGN (0x4)
+                0x0800b070                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x0800ae1c        0x0
- .rel.iplt      0x0800ae1c        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x0800b070        0x0
+ .rel.iplt      0x0800b070        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000000      0x190 load address 0x0800ae1c
+.data           0x20000000      0x190 load address 0x0800b070
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -7086,16 +7088,16 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x20000190                        . = ALIGN (0x4)
 
 .tm_clone_table
-                0x20000190        0x0 load address 0x0800afac
+                0x20000190        0x0 load address 0x0800b200
  .tm_clone_table
                 0x20000190        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x20000190        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x20000190        0x0 load address 0x0800afac
+.igot.plt       0x20000190        0x0 load address 0x0800b200
  .igot.plt      0x20000190        0x0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.tdata          0x20000190        0x0 load address 0x0800afac
+.tdata          0x20000190        0x0 load address 0x0800b200
  *(.tdata .tdata.* .gnu.linkonce.td.*)
                 0x20000190                        . = ALIGN (0x4)
                 0x20000190                        _edata = .
@@ -7112,7 +7114,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 [!provide]                        PROVIDE (__data_source_end = __tdata_source_end)
                 [!provide]                        PROVIDE (__data_source_size = (__data_source_end - __data_source))
 
-.tbss           0x20000190        0x0 load address 0x0800afac
+.tbss           0x20000190        0x0 load address 0x0800b200
                 0x20000190                        _sbss = .
                 0x20000190                        __bss_start__ = _sbss
  *(.tbss .tbss.*)
@@ -7129,7 +7131,7 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 [!provide]                        PROVIDE (__arm32_tls_tcb_offset = MAX (0x8, __tls_align))
                 [!provide]                        PROVIDE (__arm64_tls_tcb_offset = MAX (0x10, __tls_align))
 
-.bss            0x20000190     0xa6b0 load address 0x0800afac
+.bss            0x20000190     0xa6b8 load address 0x0800b200
  *(.bss)
  *(.bss*)
  .bss.completed.1
@@ -7196,57 +7198,61 @@ LOAD /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-no
  .bss.p2        0x20001e7a        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
  .bss.p3        0x20001e7c        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
  .bss.p4        0x20001e7e        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
- .bss.g_btn1    0x20001e80        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                0x20001e80                g_btn1
- *fill*         0x20001e83        0x1 
- .bss.g_btn2    0x20001e84        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                0x20001e84                g_btn2
- *fill*         0x20001e87        0x1 
- .bss.g_btn3    0x20001e88        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                0x20001e88                g_btn3
+ .bss.r1        0x20001e80        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .bss.r2        0x20001e82        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .bss.r3        0x20001e84        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .bss.r4        0x20001e86        0x2 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .bss.g_btn1    0x20001e88        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x20001e88                g_btn1
  *fill*         0x20001e8b        0x1 
- .bss.g_btn4    0x20001e8c        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                0x20001e8c                g_btn4
+ .bss.g_btn2    0x20001e8c        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x20001e8c                g_btn2
  *fill*         0x20001e8f        0x1 
+ .bss.g_btn3    0x20001e90        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x20001e90                g_btn3
+ *fill*         0x20001e93        0x1 
+ .bss.g_btn4    0x20001e94        0x3 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x20001e94                g_btn4
+ *fill*         0x20001e97        0x1 
  .bss.s_adc1_dma_buffer
-                0x20001e90     0x4000 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x20001e98     0x4000 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .bss.s_adc2_dma_buffer
-                0x20005e90     0x4000 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x20005e98     0x4000 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .bss.s_tx_packet
-                0x20009e90      0x810 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x20009e98      0x810 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .bss.s_dma_started
-                0x2000a6a0        0x1 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- *fill*         0x2000a6a1        0x3 
- .bss.s_last_tx_ms
-                0x2000a6a4        0x4 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .bss.__lock___atexit_recursive_mutex
-                0x2000a6a8        0x1 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
-                0x2000a6a8                __lock___atexit_recursive_mutex
+                0x2000a6a8        0x1 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  *fill*         0x2000a6a9        0x3 
- .bss.__atexit  0x2000a6ac        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
-                0x2000a6ac                __atexit
+ .bss.s_last_tx_ms
+                0x2000a6ac        0x4 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .bss.__lock___atexit_recursive_mutex
+                0x2000a6b0        0x1 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
+                0x2000a6b0                __lock___atexit_recursive_mutex
+ *fill*         0x2000a6b1        0x3 
+ .bss.__atexit  0x2000a6b4        0x4 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
+                0x2000a6b4                __atexit
  .bss.__atexit0
-                0x2000a6b0      0x190 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__atexit.o)
-                0x2000a6b0                __atexit0
+                0x2000a6b8      0x190 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__atexit.o)
+                0x2000a6b8                __atexit0
  *(COMMON)
-                0x2000a840                        . = ALIGN (0x4)
-                0x2000a840                        _ebss = .
-                0x2000a840                        __bss_end__ = _ebss
+                0x2000a848                        . = ALIGN (0x4)
+                0x2000a848                        _ebss = .
+                0x2000a848                        __bss_end__ = _ebss
                 [!provide]                        PROVIDE (__bss_end = .)
                 [!provide]                        PROVIDE (__non_tls_bss_start = ADDR (.bss))
                 [!provide]                        PROVIDE (__bss_start = __tbss_start)
                 [!provide]                        PROVIDE (__bss_size = (__bss_end - __bss_start))
 
 ._user_heap_stack
-                0x2000a840      0x600 load address 0x0800afac
-                0x2000a840                        . = ALIGN (0x8)
+                0x2000a848      0x600 load address 0x0800b200
+                0x2000a848                        . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x2000a840                        PROVIDE (_end = .)
-                0x2000aa40                        . = (. + _Min_Heap_Size)
- *fill*         0x2000a840      0x200 
-                0x2000ae40                        . = (. + _Min_Stack_Size)
- *fill*         0x2000aa40      0x400 
-                0x2000ae40                        . = ALIGN (0x8)
+                0x2000a848                        PROVIDE (_end = .)
+                0x2000aa48                        . = (. + _Min_Heap_Size)
+ *fill*         0x2000a848      0x200 
+                0x2000ae48                        . = (. + _Min_Stack_Size)
+ *fill*         0x2000aa48      0x400 
+                0x2000ae48                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a:*(*)
@@ -7416,7 +7422,7 @@ LOAD linker stubs
  .comment       0x00000045        0x0 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
                                  0x46 (size before relaxing)
 
-.debug_info     0x00000000    0x1c9af
+.debug_info     0x00000000    0x1cb89
  .debug_info    0x00000000      0x58e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_info    0x0000058e     0x1610 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c.obj
  .debug_info    0x00001b9e      0x80a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c.obj
@@ -7440,19 +7446,19 @@ LOAD linker stubs
  .debug_info    0x00015542      0x6d7 CMakeFiles/JD2_real.dir/USB_Device/App/usb_device.c.obj
  .debug_info    0x00015c19      0x45f CMakeFiles/JD2_real.dir/USB_Device/App/usbd_desc.c.obj
  .debug_info    0x00016078      0x8df CMakeFiles/JD2_real.dir/USB_Device/App/usbd_cdc_if.c.obj
- .debug_info    0x00016957     0x111d CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
- .debug_info    0x00017a74      0x47f CMakeFiles/JD2_real.dir/Core/Src/gpio.c.obj
- .debug_info    0x00017ef3     0x101d CMakeFiles/JD2_real.dir/Core/Src/adc.c.obj
- .debug_info    0x00018f10      0x540 CMakeFiles/JD2_real.dir/Core/Src/dma.c.obj
- .debug_info    0x00019450      0xf00 CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
- .debug_info    0x0001a350      0x998 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_info    0x0001ace8      0x2da CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_info    0x0001afc2      0xa2e CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
- .debug_info    0x0001b9f0      0x2e8 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
- .debug_info    0x0001bcd8      0xca7 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_info    0x0001c97f       0x30 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+ .debug_info    0x00016957     0x1118 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
+ .debug_info    0x00017a6f      0x47f CMakeFiles/JD2_real.dir/Core/Src/gpio.c.obj
+ .debug_info    0x00017eee     0x101d CMakeFiles/JD2_real.dir/Core/Src/adc.c.obj
+ .debug_info    0x00018f0b      0x540 CMakeFiles/JD2_real.dir/Core/Src/dma.c.obj
+ .debug_info    0x0001944b      0xf00 CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
+ .debug_info    0x0001a34b      0x998 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_info    0x0001ace3      0x2da CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_info    0x0001afbd      0xac6 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .debug_info    0x0001ba83      0x2e8 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+ .debug_info    0x0001bd6b      0xdee CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_info    0x0001cb59       0x30 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
 
-.debug_abbrev   0x00000000     0x4998
+.debug_abbrev   0x00000000     0x49f5
  .debug_abbrev  0x00000000      0x11a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_abbrev  0x0000011a      0x2b9 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c.obj
  .debug_abbrev  0x000003d3      0x228 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c.obj
@@ -7483,12 +7489,12 @@ LOAD linker stubs
  .debug_abbrev  0x00003e4e      0x27c CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
  .debug_abbrev  0x000040ca      0x1b1 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
  .debug_abbrev  0x0000427b       0xd9 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_abbrev  0x00004354      0x20c CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
- .debug_abbrev  0x00004560      0x1bb CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
- .debug_abbrev  0x0000471b      0x259 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_abbrev  0x00004974       0x24 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+ .debug_abbrev  0x00004354      0x239 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .debug_abbrev  0x0000458d      0x1bb CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+ .debug_abbrev  0x00004748      0x289 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_abbrev  0x000049d1       0x24 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
 
-.debug_aranges  0x00000000     0x1920
+.debug_aranges  0x00000000     0x1928
  .debug_aranges
                 0x00000000       0x28 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_aranges
@@ -7550,16 +7556,16 @@ LOAD linker stubs
  .debug_aranges
                 0x00001828       0x20 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
  .debug_aranges
-                0x00001848       0x30 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+                0x00001848       0x38 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
  .debug_aranges
-                0x00001878       0x38 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x00001880       0x38 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
  .debug_aranges
-                0x000018b0       0x48 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x000018b8       0x48 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_aranges
-                0x000018f8       0x28 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+                0x00001900       0x28 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
 
 .debug_rnglists
-                0x00000000     0x1309
+                0x00000000     0x1310
  .debug_rnglists
                 0x00000000       0x1a cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_rnglists
@@ -7621,15 +7627,15 @@ LOAD linker stubs
  .debug_rnglists
                 0x00001265       0x13 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
  .debug_rnglists
-                0x00001278       0x20 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+                0x00001278       0x27 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
  .debug_rnglists
-                0x00001298       0x25 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                0x0000129f       0x25 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
  .debug_rnglists
-                0x000012bd       0x33 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                0x000012c4       0x33 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
  .debug_rnglists
-                0x000012f0       0x19 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+                0x000012f7       0x19 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
 
-.debug_macro    0x00000000    0x247d4
+.debug_macro    0x00000000    0x247e6
  .debug_macro   0x00000000      0x201 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_macro   0x00000201      0xaea cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_macro   0x00000ceb       0x2e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
@@ -7732,21 +7738,21 @@ LOAD linker stubs
  .debug_macro   0x00022df4      0x402 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .debug_macro   0x000231f6       0x34 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
  .debug_macro   0x0002322a       0x22 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
- .debug_macro   0x0002324c       0x6a CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
- .debug_macro   0x000232b6      0x21a CMakeFiles/JD2_real.dir/Core/Src/gpio.c.obj
- .debug_macro   0x000234d0      0x21a CMakeFiles/JD2_real.dir/Core/Src/adc.c.obj
- .debug_macro   0x000236ea      0x21a CMakeFiles/JD2_real.dir/Core/Src/dma.c.obj
- .debug_macro   0x00023904      0x21a CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
- .debug_macro   0x00023b1e      0x21a CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
- .debug_macro   0x00023d38      0x210 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_macro   0x00023f48      0x22d CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
- .debug_macro   0x00024175      0x259 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
- .debug_macro   0x000243ce      0x3be CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_macro   0x0002478c       0x10 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_macro   0x0002479c       0x1c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_macro   0x000247b8       0x1c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_macro   0x0002324c       0x76 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
+ .debug_macro   0x000232c2      0x21a CMakeFiles/JD2_real.dir/Core/Src/gpio.c.obj
+ .debug_macro   0x000234dc      0x21a CMakeFiles/JD2_real.dir/Core/Src/adc.c.obj
+ .debug_macro   0x000236f6      0x21a CMakeFiles/JD2_real.dir/Core/Src/dma.c.obj
+ .debug_macro   0x00023910      0x21a CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
+ .debug_macro   0x00023b2a      0x21a CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
+ .debug_macro   0x00023d44      0x210 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+ .debug_macro   0x00023f54      0x233 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .debug_macro   0x00024187      0x259 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+ .debug_macro   0x000243e0      0x3be CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_macro   0x0002479e       0x10 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_macro   0x000247ae       0x1c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_macro   0x000247ca       0x1c CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
 
-.debug_line     0x00000000    0x1f782
+.debug_line     0x00000000    0x1f89f
  .debug_line    0x00000000      0x7e0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_line    0x000007e0     0x132e cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c.obj
  .debug_line    0x00001b0e      0x915 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c.obj
@@ -7777,82 +7783,82 @@ LOAD linker stubs
  .debug_line    0x0001c061      0x9be CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
  .debug_line    0x0001ca1f      0x868 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
  .debug_line    0x0001d287      0x774 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_line    0x0001d9fb      0x84c CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
- .debug_line    0x0001e247      0x810 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
- .debug_line    0x0001ea57      0xcb0 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_line    0x0001f707       0x7b CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+ .debug_line    0x0001d9fb      0x89a CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .debug_line    0x0001e295      0x810 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+ .debug_line    0x0001eaa5      0xd7f CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_line    0x0001f824       0x7b CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
 
-.debug_str      0x00000000    0xe28ce
- .debug_str     0x00000000    0xe28ce cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
-                              0xd69dd (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c.obj
-                              0xd7159 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c.obj
-                              0xd6d95 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.c.obj
-                              0xd6c96 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
-                              0xd75e8 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
-                              0xd70d6 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
-                              0xd7113 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
-                              0xd6b68 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
-                              0xd6db7 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
-                              0xd6ecb (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
-                              0xd72a4 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
-                              0xd7a0a (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
-                              0xd79b0 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
-                              0xd7edb (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
-                              0xd7b4f (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
-                              0xdab94 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
-                              0xdaae6 (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
-                              0xda9db (size before relaxing)
- .debug_str     0x000e28ce        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
-                              0xdb2b8 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/USB_Device/Target/usbd_conf.c.obj
-                              0xdbd56 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/USB_Device/App/usb_device.c.obj
-                              0xdad8f (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/USB_Device/App/usbd_desc.c.obj
-                              0xda8e5 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/USB_Device/App/usbd_cdc_if.c.obj
-                              0xdaddf (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
-                              0xdb7c3 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/gpio.c.obj
-                              0xd6ac2 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/adc.c.obj
-                              0xd738a (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/dma.c.obj
-                              0xd6f47 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
-                              0xd7294 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
-                              0xd6ffc (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
-                              0xd6a18 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
-                              0xd6ffe (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
-                              0xd6a95 (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
-                              0xdb56f (size before relaxing)
- .debug_str     0x000e28ce        0x0 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
+.debug_str      0x00000000    0xe2a6c
+ .debug_str     0x00000000    0xe2a6c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
+                              0xd6a00 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c.obj
+                              0xd717c (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c.obj
+                              0xd6db8 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_usb.c.obj
+                              0xd6cb9 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c.obj
+                              0xd760b (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c.obj
+                              0xd70f9 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c.obj
+                              0xd7136 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.c.obj
+                              0xd6b8b (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c.obj
+                              0xd6dda (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.c.obj
+                              0xd6eee (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c.obj
+                              0xd72c7 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.c.obj
+                              0xd7a2d (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.c.obj
+                              0xd79d3 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.c.obj
+                              0xd7efe (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.c.obj
+                              0xd7b72 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c.obj
+                              0xdabb7 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c.obj
+                              0xdab09 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c.obj
+                              0xda9fe (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir/__/__/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c.obj
+                              0xdb2db (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/USB_Device/Target/usbd_conf.c.obj
+                              0xdbd79 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/USB_Device/App/usb_device.c.obj
+                              0xdadb2 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/USB_Device/App/usbd_desc.c.obj
+                              0xda908 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/USB_Device/App/usbd_cdc_if.c.obj
+                              0xdae02 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/main.c.obj
+                              0xdb86b (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/gpio.c.obj
+                              0xd6ae5 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/adc.c.obj
+                              0xd73ad (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/dma.c.obj
+                              0xd6f6a (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
+                              0xd72b7 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
+                              0xd701f (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
+                              0xd6a3b (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+                              0xd7066 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+                              0xd6ab8 (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+                              0xdb6df (size before relaxing)
+ .debug_str     0x000e2a6c        0x0 CMakeFiles/JD2_real.dir/startup_stm32g491xx.s.obj
                                  0xac (size before relaxing)
 
-.debug_frame    0x00000000     0x69d0
+.debug_frame    0x00000000     0x6a08
  .debug_frame   0x00000000       0x58 cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Core/Src/system_stm32g4xx.c.obj
  .debug_frame   0x00000058      0x56c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd.c.obj
  .debug_frame   0x000005c4      0x14c cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir/__/__/Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pcd_ex.c.obj
@@ -7883,16 +7889,16 @@ LOAD linker stubs
  .debug_frame   0x00006354       0xe8 CMakeFiles/JD2_real.dir/Core/Src/tim.c.obj
  .debug_frame   0x0000643c      0x160 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_it.c.obj
  .debug_frame   0x0000659c       0x34 CMakeFiles/JD2_real.dir/Core/Src/stm32g4xx_hal_msp.c.obj
- .debug_frame   0x000065d0       0x78 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
- .debug_frame   0x00006648       0x98 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
- .debug_frame   0x000066e0       0xf0 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
- .debug_frame   0x000067d0       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-memset.o)
- .debug_frame   0x000067fc       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-init.o)
- .debug_frame   0x00006828       0xb0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
- .debug_frame   0x000068d8       0x6c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
- .debug_frame   0x00006944       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-atexit.o)
- .debug_frame   0x00006964       0x34 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-fini.o)
- .debug_frame   0x00006998       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__atexit.o)
+ .debug_frame   0x000065d0       0xa0 CMakeFiles/JD2_real.dir/Core/Src/encoder.c.obj
+ .debug_frame   0x00006670       0x98 CMakeFiles/JD2_real.dir/Core/Src/buttons.c.obj
+ .debug_frame   0x00006708      0x100 CMakeFiles/JD2_real.dir/Core/Src/scope_stream.c.obj
+ .debug_frame   0x00006808       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-memset.o)
+ .debug_frame   0x00006834       0x2c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-init.o)
+ .debug_frame   0x00006860       0xb0 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-lock.o)
+ .debug_frame   0x00006910       0x6c /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__call_atexit.o)
+ .debug_frame   0x0000697c       0x20 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-atexit.o)
+ .debug_frame   0x0000699c       0x34 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-fini.o)
+ .debug_frame   0x000069d0       0x38 /Applications/ArmGNUToolchain/15.2.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libg.a(libc_a-__atexit.o)
 
 .debug_line_str
                 0x00000000       0x90

@@ -56,10 +56,11 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-static const uint16_t kVdivOptions_mV[] = {200U,  500U,  1000U,
+static const uint32_t kVdivOptions_mV[] = {100U,  200U,  500U,  1000U,
                                            2000U, 5000U, 10000U};
-static const uint32_t kSdivOptions_us[] = {50U,   100U,  200U,  500U,
-                                           1000U, 2000U, 5000U, 10000U};
+static const uint32_t kSdivOptions_us[] = {
+    5U,    10U,   20U,   50U,    100U,   200U,   500U,
+    1000U, 2000U, 5000U, 10000U, 20000U, 50000U, 100000U};
 
 static scope_cfg_t g_scope_cfg = {
     .ch1_enabled = 1U,
@@ -67,7 +68,9 @@ static scope_cfg_t g_scope_cfg = {
     .ch1_vdiv_idx = 2U, // 1.00 V/div
     .ch2_vdiv_idx = 2U, // 1.00 V/div
     .sdiv_idx = 2U,     // 200 us/div
-    .trig_idx = 2U,
+    // trigger byte: each encoder step maps to 16 ADC codes, so 0..255 ->
+    // 0..4080.
+    .trig_idx = 128U,
 };
 
 static bool g_scope_cfg_dirty = true;

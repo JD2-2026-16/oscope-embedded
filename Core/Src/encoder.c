@@ -4,9 +4,20 @@
 encoder_t g_enc1 = {0}, g_enc2 = {0}, g_enc3 = {0}, g_enc4 = {0};
 
 static uint16_t p1, p2, p3, p4;
+static int16_t r1, r2, r3, r4;
+
+// Number of timer counts that should map to one logical UI step.
+#define ENC_COUNTS_PER_STEP 2
 
 static inline int16_t diff16(uint16_t now, uint16_t prev) {
   return (int16_t)(now - prev); // wrap-safe for 16-bit
+}
+
+static int16_t normalize_step_delta(int16_t raw_delta, int16_t *remainder) {
+  int32_t acc = (int32_t)(*remainder) + (int32_t)raw_delta;
+  int16_t steps = (int16_t)(acc / ENC_COUNTS_PER_STEP);
+  *remainder = (int16_t)(acc - ((int32_t)steps * ENC_COUNTS_PER_STEP));
+  return steps;
 }
 
 void Encoders_Init(void) {
@@ -19,6 +30,7 @@ void Encoders_Init(void) {
   p2 = (uint16_t)__HAL_TIM_GET_COUNTER(&htim4);
   p3 = (uint16_t)__HAL_TIM_GET_COUNTER(&htim1);
   p4 = (uint16_t)__HAL_TIM_GET_COUNTER(&htim2);
+  r1 = r2 = r3 = r4 = 0;
 }
 
 void Encoders_Poll_1ms(void) {
@@ -35,6 +47,11 @@ void Encoders_Poll_1ms(void) {
   p3 = n3;
   int16_t d4 = diff16(n4, p4);
   p4 = n4;
+
+  d1 = normalize_step_delta(d1, &r1);
+  d2 = normalize_step_delta(d2, &r2);
+  d3 = normalize_step_delta(d3, &r3);
+  d4 = normalize_step_delta(d4, &r4);
 
   if (d1) {
     g_enc1.count += d1;
