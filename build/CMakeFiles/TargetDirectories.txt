@@ -1,7 +1,0 @@
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/CMakeFiles/JD2_real.dir
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/CMakeFiles/edit_cache.dir
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/CMakeFiles/rebuild_cache.dir
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/cmake/stm32cubemx/CMakeFiles/STM32_Drivers.dir
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/cmake/stm32cubemx/CMakeFiles/USB_Device_Library.dir
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/cmake/stm32cubemx/CMakeFiles/edit_cache.dir
-/Users/finbarroconnell/College/Y3/Q2/JD 2/oscope-embedded/build/cmake/stm32cubemx/CMakeFiles/rebuild_cache.dir
