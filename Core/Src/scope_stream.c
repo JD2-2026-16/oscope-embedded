@@ -6,9 +6,11 @@
 #include "usbd_cdc_if.h"
 
 // Limit USB packet transmit cadence.
-// 40 ms -> ~25 FPS update rate, which is a practical balance for USB FS + GUI
-// load.
+// 40 ms -> ~25 FPS update rate
 #define SCOPE_STREAM_TX_PERIOD_MS (40U)
+// Keep copied windows this far behind the DMA write head to avoid in-flight
+// sample corruption.
+#define SCOPE_STREAM_DMA_GUARD_SAMPLES (64U)
 
 // Circular DMA targets for ADC1/ADC2 continuous conversions.
 // Each buffer is written by DMA in circular mode and read by the stream task.
@@ -166,6 +168,20 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
 // Coarse decimation map from S/div index.
 // Higher time/div means we skip more raw samples between plotted points.
 static uint8_t ScopeStream_GetDecimationShift(uint8_t sdiv_idx) {
+  // 14 S/div options map into 3-bit decimation field (0..7).
+  // This keeps wider timebases changing visibly instead of flattening out.
+  if (sdiv_idx >= 12U) {
+    return 7U;
+  }
+  if (sdiv_idx >= 11U) {
+    return 6U;
+  }
+  if (sdiv_idx >= 10U) {
+    return 5U;
+  }
+  if (sdiv_idx >= 8U) {
+    return 4U;
+  }
   if (sdiv_idx >= 6U) {
     return 3U;
   }
@@ -223,7 +239,10 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   uint32_t search_start;
   int32_t trigger_offset;
   uint32_t left_margin_raw;
+  uint32_t right_margin_raw;
   uint32_t trigger_idx_abs;
+  uint32_t search_last_offset;
+  uint32_t guard_raw;
   uint32_t start_idx;
   bool trigger_found;
 
@@ -252,6 +271,13 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   write_idx1 = ScopeStream_GetAdcWriteIndex(&hadc1);
   write_idx2 = ScopeStream_GetAdcWriteIndex(&hadc2);
   anchor_idx = (write_idx1 < write_idx2) ? write_idx1 : write_idx2;
+  guard_raw = (uint32_t)decimation * SCOPE_STREAM_DMA_GUARD_SAMPLES;
+  if (guard_raw >= SCOPE_STREAM_ADC_BUFFER_SAMPLES) {
+    guard_raw = SCOPE_STREAM_ADC_BUFFER_SAMPLES - 1U;
+  }
+  anchor_idx =
+      (uint16_t)((anchor_idx + SCOPE_STREAM_ADC_BUFFER_SAMPLES - guard_raw) %
+                 SCOPE_STREAM_ADC_BUFFER_SAMPLES);
 
   // Search in a recent history window (up to 2x frame span) for a trigger
   // crossing.
@@ -266,7 +292,14 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   // Search backwards for the newest rising crossing on CH1 source (ADC2).
   // Small hysteresis (+/-8 codes around threshold) suppresses noise chatter.
   if (search_span > 1U) {
-    for (uint32_t off = search_span - 1U; off > 0U; --off) {
+    left_margin_raw = span / 5U; // ~20% pre-trigger
+    right_margin_raw = span - left_margin_raw;
+    if (right_margin_raw < search_span) {
+      search_last_offset = search_span - right_margin_raw;
+    } else {
+      search_last_offset = 0U;
+    }
+    for (uint32_t off = search_last_offset; off > 0U; --off) {
       uint32_t idx_prev =
           (search_start + off - 1U) % SCOPE_STREAM_ADC_BUFFER_SAMPLES;
       uint32_t idx_now = (search_start + off) % SCOPE_STREAM_ADC_BUFFER_SAMPLES;

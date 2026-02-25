@@ -271,7 +271,7 @@ int main(void) {
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
-    if ((HAL_GetTick() - s_last_heartbeat_ms) >= 500U) {
+    if ((HAL_GetTick() - s_last_heartbeat_ms) >= 1U) {
       HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_11);
       s_last_heartbeat_ms = HAL_GetTick();
     }
