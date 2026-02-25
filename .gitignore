@@ -1,4 +1,5 @@
 .zed
 .clangd
 .cache
-/build
+build/
+cmake/
