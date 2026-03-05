@@ -73,7 +73,9 @@ typedef struct {
   uint8_t ch1_vdiv_idx;
   uint8_t ch2_vdiv_idx;
   uint8_t sdiv_idx;
-  uint8_t trig_idx;
+  uint8_t trig_ch1_idx;
+  uint8_t trig_ch2_idx;
+  uint8_t trig_src; // 0 = CH1, 1 = CH2
 } scope_cfg_t;
 /* USER CODE END Private defines */
 

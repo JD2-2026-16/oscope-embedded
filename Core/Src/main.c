@@ -20,14 +20,14 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
-#include "gpio.h"
-#include "scope_stream.h"
 #include "tim.h"
 #include "usb_device.h"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "buttons.h"
+#include "scope_stream.h"
 #include "usbd_cdc_if.h"
 #include <encoder.h>
 #include <stdbool.h>
@@ -61,6 +61,8 @@ static const uint32_t kVdivOptions_mV[] = {100U,  200U,  500U,  1000U,
 static const uint32_t kSdivOptions_us[] = {
     5U,    10U,   20U,   50U,    100U,   200U,   500U,
     1000U, 2000U, 5000U, 10000U, 20000U, 50000U, 100000U};
+static const uint32_t kAdcFastSampleRateHz = 2833333U;
+static const uint32_t kAdcMinSampleRateHz = 1000U;
 
 static scope_cfg_t g_scope_cfg = {
     .ch1_enabled = 1U,
@@ -68,17 +70,21 @@ static scope_cfg_t g_scope_cfg = {
     .ch1_vdiv_idx = 2U, // 1.00 V/div
     .ch2_vdiv_idx = 2U, // 1.00 V/div
     .sdiv_idx = 2U,     // 200 us/div
-    // trigger byte: each encoder step maps to 16 ADC codes, so 0..255 ->
+    // Trigger bytes: each encoder step maps to 16 ADC codes, so 0..255 ->
     // 0..4080.
-    .trig_idx = 128U,
+    .trig_ch1_idx = 128U,
+    .trig_ch2_idx = 128U,
+    .trig_src = 0U, // start with CH1 trigger selected
 };
 
 static bool g_scope_cfg_dirty = true;
 static bool g_btn1_prev = false;
+static bool g_btn2_prev = false;
 static bool g_btn4_prev = false;
 
 static uint32_t s_last_heartbeat_ms = 0U;
 static uint32_t lastPoll = 0;
+static uint8_t s_last_sdiv_applied = 0xFFU;
 
 /* USER CODE END PV */
 
@@ -99,6 +105,92 @@ static int clamp_idx_with_delta(int current, int delta, int min, int max) {
     next = max;
   }
   return next;
+}
+
+// Return the TIM6 kernel clock frequency used to generate TRGO update events.
+static uint32_t ScopeCtl_GetTim6ClockHz(void) {
+  uint32_t pclk1 = HAL_RCC_GetPCLK1Freq();
+  uint32_t ppre1_bits = RCC->CFGR & RCC_CFGR_PPRE1;
+  if (ppre1_bits != RCC_CFGR_PPRE1_DIV1) {
+    return pclk1 * 2U;
+  }
+  return pclk1;
+}
+
+// Choose an ADC trigger sample rate for current S/div:
+// - keep max speed at fast timebases,
+// - slow down at wide timebases so 10 divisions fit DMA history.
+static uint32_t ScopeCtl_ComputeTargetSampleRateHz(uint8_t sdiv_idx) {
+  uint32_t total_us;
+  uint64_t max_fit_rate;
+  uint32_t target;
+
+  if (sdiv_idx >= (sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0]))) {
+    sdiv_idx = (uint8_t)((sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0])) - 1U);
+  }
+  total_us = kSdivOptions_us[sdiv_idx] * 10U;
+  max_fit_rate = ((uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES * 1000000ULL) / (uint64_t)total_us;
+
+  target = kAdcFastSampleRateHz;
+  if (max_fit_rate < (uint64_t)target) {
+    target = (uint32_t)max_fit_rate;
+  }
+  if (target < kAdcMinSampleRateHz) {
+    target = kAdcMinSampleRateHz;
+  }
+  return target;
+}
+
+// Apply TIM6 PSC/ARR for a target ADC trigger rate and publish achieved rate
+// to the stream module so time-span math remains accurate.
+static void ScopeCtl_ApplyAdcSampleRateHz(uint32_t target_hz) {
+  uint32_t tim_clk_hz;
+  uint32_t psc_plus1;
+  uint32_t arr_plus1;
+  uint32_t achieved_hz;
+  uint64_t denom;
+
+  if (target_hz == 0U) {
+    return;
+  }
+
+  tim_clk_hz = ScopeCtl_GetTim6ClockHz();
+  denom = (uint64_t)target_hz * 65536ULL;
+  psc_plus1 = (uint32_t)((((uint64_t)tim_clk_hz + denom - 1ULL) / denom));
+  if (psc_plus1 < 1U) {
+    psc_plus1 = 1U;
+  }
+  if (psc_plus1 > 65536U) {
+    psc_plus1 = 65536U;
+  }
+
+  denom = (uint64_t)target_hz * (uint64_t)psc_plus1;
+  arr_plus1 = (uint32_t)((((uint64_t)tim_clk_hz + denom - 1ULL) / denom));
+  if (arr_plus1 < 2U) {
+    arr_plus1 = 2U;
+  }
+  if (arr_plus1 > 65536U) {
+    arr_plus1 = 65536U;
+  }
+
+  HAL_TIM_Base_Stop(&htim6);
+  __HAL_TIM_SET_PRESCALER(&htim6, (uint32_t)(psc_plus1 - 1U));
+  __HAL_TIM_SET_AUTORELOAD(&htim6, (uint32_t)(arr_plus1 - 1U));
+  __HAL_TIM_SET_COUNTER(&htim6, 0U);
+  __HAL_TIM_CLEAR_FLAG(&htim6, TIM_FLAG_UPDATE);
+  htim6.Instance->EGR = TIM_EGR_UG;
+  HAL_TIM_Base_Start(&htim6);
+
+  achieved_hz = tim_clk_hz / (psc_plus1 * arr_plus1);
+  ScopeStream_SetSampleRateHz(achieved_hz);
+}
+
+static void ScopeCtl_UpdateAdcTimingFromSdiv(void) {
+  if (s_last_sdiv_applied == g_scope_cfg.sdiv_idx) {
+    return;
+  }
+  ScopeCtl_ApplyAdcSampleRateHz(ScopeCtl_ComputeTargetSampleRateHz(g_scope_cfg.sdiv_idx));
+  s_last_sdiv_applied = g_scope_cfg.sdiv_idx;
 }
 
 // USB CDC RX hook; command parsing can be implemented here later.
@@ -140,11 +232,20 @@ static void ScopeCtl_FromFrontPanel_1ms(void) {
   }
 
   if (g_enc2.delta != 0) {
-    int next = clamp_idx_with_delta((int)g_scope_cfg.trig_idx,
-                                    (int)g_enc2.delta, 0, 255);
-    if ((uint8_t)next != g_scope_cfg.trig_idx) {
-      g_scope_cfg.trig_idx = (uint8_t)next;
-      changed = true;
+    if (g_scope_cfg.trig_src == 0U) {
+      int next = clamp_idx_with_delta((int)g_scope_cfg.trig_ch1_idx,
+                                      (int)g_enc2.delta, 0, 255);
+      if ((uint8_t)next != g_scope_cfg.trig_ch1_idx) {
+        g_scope_cfg.trig_ch1_idx = (uint8_t)next;
+        changed = true;
+      }
+    } else {
+      int next = clamp_idx_with_delta((int)g_scope_cfg.trig_ch2_idx,
+                                      (int)g_enc2.delta, 0, 255);
+      if ((uint8_t)next != g_scope_cfg.trig_ch2_idx) {
+        g_scope_cfg.trig_ch2_idx = (uint8_t)next;
+        changed = true;
+      }
     }
     g_enc2.delta = 0;
     g_enc2.dirty = false;
@@ -168,11 +269,16 @@ static void ScopeCtl_FromFrontPanel_1ms(void) {
     g_scope_cfg.ch1_enabled = (uint8_t)!g_scope_cfg.ch1_enabled;
     changed = true;
   }
+  if (g_btn2.stable && !g_btn2_prev) {
+    g_scope_cfg.trig_src = (uint8_t)!g_scope_cfg.trig_src;
+    changed = true;
+  }
   if (g_btn4.stable && !g_btn4_prev) {
     g_scope_cfg.ch2_enabled = (uint8_t)!g_scope_cfg.ch2_enabled;
     changed = true;
   }
   g_btn1_prev = g_btn1.stable;
+  g_btn2_prev = g_btn2.stable;
   g_btn4_prev = g_btn4.stable;
 
   if (changed) {
@@ -223,10 +329,11 @@ void USB_Report_Buttons_20ms(void) {
 /* USER CODE END 0 */
 
 /**
- * @brief  The application entry point.
- * @retval int
- */
-int main(void) {
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
 
   /* USER CODE BEGIN 1 */
 
@@ -234,8 +341,7 @@ int main(void) {
 
   /* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick.
-   */
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
@@ -259,6 +365,7 @@ int main(void) {
   MX_TIM3_Init();
   MX_TIM4_Init();
   MX_USB_Device_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
   extern uint8_t CDC_Transmit_FS(uint8_t *Buf, uint16_t Len);
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
@@ -266,6 +373,7 @@ int main(void) {
   Encoders_Init();
   Buttons_Init();
   ScopeStream_Init();
+  ScopeCtl_UpdateAdcTimingFromSdiv();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -282,6 +390,7 @@ int main(void) {
       Encoders_Poll_1ms();
       Buttons_Poll_1ms();
       ScopeCtl_FromFrontPanel_1ms();
+      ScopeCtl_UpdateAdcTimingFromSdiv();
     }
     ScopeStream_Task(&g_scope_cfg);
     /* USER CODE END WHILE */
@@ -292,46 +401,47 @@ int main(void) {
 }
 
 /**
- * @brief System Clock Configuration
- * @retval None
- */
-void SystemClock_Config(void) {
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
-   */
+  */
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
 
   /** Initializes the RCC Oscillators according to the specified parameters
-   * in the RCC_OscInitTypeDef structure.
-   */
-  RCC_OscInitStruct.OscillatorType =
-      RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSI48;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV4;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV6;
   RCC_OscInitStruct.PLL.PLLN = 85;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
     Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-   */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
-                                RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  {
     Error_Handler();
   }
 }
@@ -341,10 +451,11 @@ void SystemClock_Config(void) {
 /* USER CODE END 4 */
 
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
-void Error_Handler(void) {
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
@@ -354,13 +465,14 @@ void Error_Handler(void) {
 }
 #ifdef USE_FULL_ASSERT
 /**
- * @brief  Reports the name of the source file and the source line number
- *         where the assert_param error has occurred.
- * @param  file: pointer to the source file name
- * @param  line: assert_param error line source number
- * @retval None
- */
-void assert_failed(uint8_t *file, uint32_t line) {
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line
      number, ex: printf("Wrong parameters value: file %s on line %d\r\n", file,

@@ -11,6 +11,11 @@
 // Keep copied windows this far behind the DMA write head to avoid in-flight
 // sample corruption.
 #define SCOPE_STREAM_DMA_GUARD_SAMPLES (64U)
+// ADC base rate used to convert S/div into required raw span per frame.
+#define SCOPE_STREAM_BASE_SAMPLE_RATE_HZ (2833333U)
+// Rising-edge trigger constraints in ADC codes.
+#define SCOPE_STREAM_TRIGGER_HYST_CODES (8U)
+#define SCOPE_STREAM_TRIGGER_MIN_RISE_CODES (1U)
 
 // Circular DMA targets for ADC1/ADC2 continuous conversions.
 // Each buffer is written by DMA in circular mode and read by the stream task.
@@ -23,16 +28,20 @@ static uint8_t s_tx_packet[SCOPE_STREAM_PACKET_MAX_BYTES];
 // Runtime stream state.
 static bool s_streaming_enabled = true;
 static bool s_dma_started = false;
+static uint32_t s_source_sample_rate_hz = SCOPE_STREAM_BASE_SAMPLE_RATE_HZ;
 static uint32_t s_last_tx_ms = 0U;
 
 // Internal helpers used by the periodic stream task.
-static uint8_t ScopeStream_GetDecimationShift(uint8_t sdiv_idx);
 static uint16_t ScopeStream_GetAdcWriteIndex(const ADC_HandleTypeDef *hadc);
 static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
                                               uint16_t sample_count,
-                                              uint8_t decimation_shift,
+                                              uint32_t needed_raw_span,
                                               uint16_t trigger_code,
-                                              uint16_t *trigger_index_out);
+                                              bool trigger_on_ch2,
+                                              uint16_t *trigger_index_out,
+                                              uint16_t *span_out);
+static uint32_t ScopeStream_GetNeededRawSpan(uint8_t sdiv_idx, uint16_t sample_count);
+static uint8_t ScopeStream_GetDecimationShiftFromSpan(uint32_t span, uint16_t sample_count);
 
 // Initialize ADC calibration and start both ADC DMA streams into circular
 // buffers. If any step fails, the function returns early and leaves streaming
@@ -68,6 +77,13 @@ void ScopeStream_SetStreamingEnabled(bool enabled) {
   s_streaming_enabled = enabled;
 }
 
+void ScopeStream_SetSampleRateHz(uint32_t sample_rate_hz) {
+  if (sample_rate_hz == 0U) {
+    return;
+  }
+  s_source_sample_rate_hz = sample_rate_hz;
+}
+
 // Periodic producer for one scope frame packet.
 // This function:
 // 1) Converts front-panel config into packet header fields.
@@ -75,8 +91,11 @@ void ScopeStream_SetStreamingEnabled(bool enabled) {
 // 3) Sends the packet over USB CDC if endpoint is available.
 void ScopeStream_Task(const scope_cfg_t *cfg) {
   ScopeStreamHeader header = {0};
+  uint32_t needed_raw_span;
+  uint16_t effective_span;
   uint8_t decimation_shift;
   uint16_t trigger_code;
+  uint8_t trigger_idx;
   uint16_t trigger_index;
   bool trigger_found;
   uint32_t now_ms;
@@ -94,13 +113,14 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
     return;
   }
 
-  // Map selected S/div option to a decimation shift:
-  // decimation = 2^shift samples between output points.
-  decimation_shift = ScopeStream_GetDecimationShift(cfg->sdiv_idx);
+  // Convert S/div into raw samples needed to represent 10 divisions.
+  needed_raw_span = ScopeStream_GetNeededRawSpan(cfg->sdiv_idx, SCOPE_STREAM_FRAME_SAMPLES);
+  decimation_shift = ScopeStream_GetDecimationShiftFromSpan(needed_raw_span, SCOPE_STREAM_FRAME_SAMPLES);
 
-  // Trigger knob is an 8-bit value where each encoder tick equals 16 ADC codes.
+  // Trigger knob is an 8-bit value where each encoder step equals 16 ADC codes.
   // Convert to 12-bit ADC code space and clamp to ADC max.
-  trigger_code = (uint16_t)((uint16_t)cfg->trig_idx * 16U);
+  trigger_idx = (cfg->trig_src == 0U) ? cfg->trig_ch1_idx : cfg->trig_ch2_idx;
+  trigger_code = (uint16_t)((uint16_t)trigger_idx * 16U);
   if (trigger_code > 4095U) {
     trigger_code = 4095U;
   }
@@ -109,7 +129,7 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
   header.magic = SCOPE_STREAM_MAGIC;
   header.header_size_bytes = SCOPE_STREAM_HEADER_BYTES;
   header.sample_count = SCOPE_STREAM_FRAME_SAMPLES;
-  header.trigger = cfg->trig_idx;
+  header.trigger = trigger_idx;
   header.ch_config = 0U;
 
   // Pack channel enable bits.
@@ -128,21 +148,23 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
       (uint8_t)((cfg->ch2_vdiv_idx << SCOPE_STREAM_CH_CONFIG_CH2_VDIV_POS) &
                 SCOPE_STREAM_CH_CONFIG_CH2_VDIV_MASK);
 
-  // Pack S/div index + effective decimation in time_config.
+  // Pack S/div index now; decimation field is finalized after span clamp.
   header.time_config =
       (uint8_t)((cfg->sdiv_idx << SCOPE_STREAM_TIME_CONFIG_SDIV_POS) &
                 SCOPE_STREAM_TIME_CONFIG_SDIV_MASK);
-  header.time_config |=
-      (uint8_t)((decimation_shift << SCOPE_STREAM_TIME_CONFIG_DEC_POS) &
-                SCOPE_STREAM_TIME_CONFIG_DEC_MASK);
-
+  effective_span = 0U;
   // Build interleaved payload into the packet directly.
   // The helper returns whether a trigger crossing was found and where it
   // landed.
   trigger_index = 0U;
   trigger_found = ScopeStream_CopyLatestInterleaved(
       &s_tx_packet[sizeof(header)], SCOPE_STREAM_FRAME_SAMPLES,
-      decimation_shift, trigger_code, &trigger_index);
+      needed_raw_span, trigger_code, (cfg->trig_src != 0U), &trigger_index,
+      &effective_span);
+  decimation_shift = ScopeStream_GetDecimationShiftFromSpan(effective_span, SCOPE_STREAM_FRAME_SAMPLES);
+  header.time_config |=
+      (uint8_t)((decimation_shift << SCOPE_STREAM_TIME_CONFIG_DEC_POS) &
+                SCOPE_STREAM_TIME_CONFIG_DEC_MASK);
 
   // reserved0 is used as metadata transport:
   // - bit 16: trigger found flag
@@ -153,6 +175,11 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
         (uint64_t)trigger_index & SCOPE_STREAM_META_TRIGGER_INDEX_MASK;
     header.reserved0 |= SCOPE_STREAM_META_TRIGGER_FOUND_BIT;
   }
+  if (cfg->trig_src != 0U) {
+    header.reserved0 |= SCOPE_STREAM_META_TRIGGER_SRC_CH2_BIT;
+  }
+  header.reserved0 |= ((uint64_t)effective_span << SCOPE_STREAM_META_SPAN_POS) &
+                      SCOPE_STREAM_META_SPAN_MASK;
 
   // Write header at packet start after payload generation.
   memcpy(s_tx_packet, &header, sizeof(header));
@@ -165,33 +192,42 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
   }
 }
 
-// Coarse decimation map from S/div index.
-// Higher time/div means we skip more raw samples between plotted points.
-static uint8_t ScopeStream_GetDecimationShift(uint8_t sdiv_idx) {
-  // 14 S/div options map into 3-bit decimation field (0..7).
-  // This keeps wider timebases changing visibly instead of flattening out.
-  if (sdiv_idx >= 12U) {
-    return 7U;
+static uint32_t ScopeStream_GetNeededRawSpan(uint8_t sdiv_idx, uint16_t sample_count) {
+  static const uint32_t kSdivOptionsUs[] = {
+      5U,    10U,   20U,   50U,    100U,   200U,   500U,
+      1000U, 2000U, 5000U, 10000U, 20000U, 50000U, 100000U};
+  uint32_t sdiv_us;
+  uint32_t total_us;
+  uint64_t needed;
+
+  if (sdiv_idx >= (sizeof(kSdivOptionsUs) / sizeof(kSdivOptionsUs[0]))) {
+    sdiv_idx = (uint8_t)((sizeof(kSdivOptionsUs) / sizeof(kSdivOptionsUs[0])) - 1U);
   }
-  if (sdiv_idx >= 11U) {
-    return 6U;
+  sdiv_us = kSdivOptionsUs[sdiv_idx];
+  total_us = sdiv_us * 10U;
+  needed = ((uint64_t)s_source_sample_rate_hz * (uint64_t)total_us + 500000ULL) / 1000000ULL;
+  if (needed < (uint64_t)sample_count) {
+    needed = (uint64_t)sample_count;
   }
-  if (sdiv_idx >= 10U) {
-    return 5U;
+  if (needed > (uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES) {
+    needed = (uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES;
   }
-  if (sdiv_idx >= 8U) {
-    return 4U;
+  return (uint32_t)needed;
+}
+
+static uint8_t ScopeStream_GetDecimationShiftFromSpan(uint32_t span, uint16_t sample_count) {
+  uint32_t ratio;
+  uint8_t shift;
+
+  if (sample_count == 0U) {
+    return 0U;
   }
-  if (sdiv_idx >= 6U) {
-    return 3U;
+  ratio = span / (uint32_t)sample_count;
+  shift = 0U;
+  while ((shift < 7U) && ((1UL << (shift + 1U)) <= ratio)) {
+    ++shift;
   }
-  if (sdiv_idx >= 4U) {
-    return 2U;
-  }
-  if (sdiv_idx >= 2U) {
-    return 1U;
-  }
-  return 0U;
+  return shift;
 }
 
 // Read current producer position of a circular DMA stream.
@@ -227,14 +263,19 @@ static uint16_t ScopeStream_GetAdcWriteIndex(const ADC_HandleTypeDef *hadc) {
 // space.
 static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
                                               uint16_t sample_count,
-                                              uint8_t decimation_shift,
+                                              uint32_t needed_raw_span,
                                               uint16_t trigger_code,
-                                              uint16_t *trigger_index_out) {
+                                              bool trigger_on_ch2,
+                                              uint16_t *trigger_index_out,
+                                              uint16_t *span_out) {
   uint16_t write_idx1;
   uint16_t write_idx2;
   uint16_t anchor_idx;
-  uint16_t decimation;
   uint32_t span;
+  uint32_t base_step;
+  uint32_t step_rem;
+  uint32_t src_off;
+  uint32_t step_acc;
   uint32_t search_span;
   uint32_t search_start;
   int32_t trigger_offset;
@@ -245,10 +286,15 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   uint32_t guard_raw;
   uint32_t start_idx;
   bool trigger_found;
+  const uint16_t *trigger_src;
 
   if (trigger_index_out != NULL) {
     *trigger_index_out = 0U;
   }
+  if (span_out != NULL) {
+    *span_out = 0U;
+  }
+  trigger_src = trigger_on_ch2 ? s_adc1_dma_buffer : s_adc2_dma_buffer;
 
   // Clamp request to protocol frame limit and reject empty copy.
   if (sample_count > SCOPE_STREAM_FRAME_SAMPLES) {
@@ -258,12 +304,16 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
     return false;
   }
 
-  decimation = (uint16_t)(1U << decimation_shift);
-
-  // Raw span is how many DMA samples the frame consumes before decimation.
-  span = (uint32_t)sample_count * (uint32_t)decimation;
+  // Raw span is how many input DMA samples this output frame represents.
+  span = needed_raw_span;
+  if (span < (uint32_t)sample_count) {
+    span = (uint32_t)sample_count;
+  }
   if (span > SCOPE_STREAM_ADC_BUFFER_SAMPLES) {
     span = SCOPE_STREAM_ADC_BUFFER_SAMPLES;
+  }
+  if (span_out != NULL) {
+    *span_out = (uint16_t)span;
   }
 
   // Use the older write index as a safe anchor to avoid reading data that is
@@ -271,7 +321,7 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   write_idx1 = ScopeStream_GetAdcWriteIndex(&hadc1);
   write_idx2 = ScopeStream_GetAdcWriteIndex(&hadc2);
   anchor_idx = (write_idx1 < write_idx2) ? write_idx1 : write_idx2;
-  guard_raw = (uint32_t)decimation * SCOPE_STREAM_DMA_GUARD_SAMPLES;
+  guard_raw = (uint32_t)SCOPE_STREAM_DMA_GUARD_SAMPLES;
   if (guard_raw >= SCOPE_STREAM_ADC_BUFFER_SAMPLES) {
     guard_raw = SCOPE_STREAM_ADC_BUFFER_SAMPLES - 1U;
   }
@@ -289,7 +339,7 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
                  SCOPE_STREAM_ADC_BUFFER_SAMPLES;
   trigger_offset = -1;
 
-  // Search backwards for the newest rising crossing on CH1 source (ADC2).
+  // Search backwards for the newest rising crossing on selected trigger source.
   // Small hysteresis (+/-8 codes around threshold) suppresses noise chatter.
   if (search_span > 1U) {
     left_margin_raw = span / 5U; // ~20% pre-trigger
@@ -303,9 +353,13 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
       uint32_t idx_prev =
           (search_start + off - 1U) % SCOPE_STREAM_ADC_BUFFER_SAMPLES;
       uint32_t idx_now = (search_start + off) % SCOPE_STREAM_ADC_BUFFER_SAMPLES;
-      uint16_t s_prev = s_adc2_dma_buffer[idx_prev];
-      uint16_t s_now = s_adc2_dma_buffer[idx_now];
-      if ((s_prev + 8U) < trigger_code && s_now >= (trigger_code + 8U)) {
+      uint16_t s_prev = trigger_src[idx_prev];
+      uint16_t s_now = trigger_src[idx_now];
+      uint16_t low_th = (trigger_code > SCOPE_STREAM_TRIGGER_HYST_CODES)
+                            ? (uint16_t)(trigger_code - SCOPE_STREAM_TRIGGER_HYST_CODES)
+                            : 0U;
+      if ((s_prev <= low_th) && (s_now >= trigger_code) && (s_now > s_prev) &&
+          ((uint16_t)(s_now - s_prev) >= SCOPE_STREAM_TRIGGER_MIN_RISE_CODES)) {
         trigger_offset = (int32_t)off;
         break;
       }
@@ -325,7 +379,7 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
     if (trigger_index_out != NULL) {
       // Convert raw left margin to decimated sample index for GUI alignment
       // metadata.
-      uint32_t trigger_sample_index = left_margin_raw / (uint32_t)decimation;
+      uint32_t trigger_sample_index = (left_margin_raw * (uint32_t)sample_count) / span;
       if (trigger_sample_index >= sample_count) {
         trigger_sample_index = sample_count - 1U;
       }
@@ -338,9 +392,15 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   }
 
   // Copy decimated samples into interleaved USB payload.
+  base_step = span / (uint32_t)sample_count;
+  if (base_step == 0U) {
+    base_step = 1U;
+  }
+  step_rem = span % (uint32_t)sample_count;
+  src_off = 0U;
+  step_acc = 0U;
   for (uint16_t i = 0U; i < sample_count; ++i) {
-    uint32_t src_idx = (start_idx + ((uint32_t)i * (uint32_t)decimation)) %
-                       SCOPE_STREAM_ADC_BUFFER_SAMPLES;
+    uint32_t src_idx = (start_idx + src_off) % SCOPE_STREAM_ADC_BUFFER_SAMPLES;
     // Logical channel swap:
     // - protocol CH1 uses ADC2
     // - protocol CH2 uses ADC1
@@ -352,6 +412,13 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
     dst[out + 1U] = (uint8_t)((ch1 >> 8U) & 0xFFU);
     dst[out + 2U] = (uint8_t)(ch2 & 0xFFU);
     dst[out + 3U] = (uint8_t)((ch2 >> 8U) & 0xFFU);
+
+    src_off += base_step;
+    step_acc += step_rem;
+    if (step_acc >= (uint32_t)sample_count) {
+      src_off += 1U;
+      step_acc -= (uint32_t)sample_count;
+    }
   }
 
   return trigger_found;

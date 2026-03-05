@@ -49,6 +49,9 @@ extern "C" {
 
 #define SCOPE_STREAM_META_TRIGGER_INDEX_MASK ((uint64_t)0x0000FFFFULL)
 #define SCOPE_STREAM_META_TRIGGER_FOUND_BIT ((uint64_t)1ULL << 16U)
+#define SCOPE_STREAM_META_TRIGGER_SRC_CH2_BIT ((uint64_t)1ULL << 17U)
+#define SCOPE_STREAM_META_SPAN_POS (32U)
+#define SCOPE_STREAM_META_SPAN_MASK ((uint64_t)0x0000FFFFULL << SCOPE_STREAM_META_SPAN_POS)
 
 typedef struct __attribute__((packed)) {
   uint16_t magic;            // 2 bytes
@@ -63,6 +66,7 @@ typedef struct __attribute__((packed)) {
 void ScopeStream_Init(void);
 void ScopeStream_Task(const scope_cfg_t *cfg);
 void ScopeStream_SetStreamingEnabled(bool enabled);
+void ScopeStream_SetSampleRateHz(uint32_t sample_rate_hz);
 
 #ifdef __cplusplus
 }
