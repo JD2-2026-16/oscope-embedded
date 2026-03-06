@@ -193,21 +193,22 @@ void ScopeStream_Task(const scope_cfg_t *cfg) {
 }
 
 static uint32_t ScopeStream_GetNeededRawSpan(uint8_t sdiv_idx, uint16_t sample_count) {
-  static const uint32_t kSdivOptionsUs[] = {
-      5U,    10U,   20U,   50U,    100U,   200U,   500U,
-      1000U, 2000U, 5000U, 10000U, 20000U, 50000U, 100000U};
-  uint32_t sdiv_us;
-  uint32_t total_us;
+  static const uint32_t kSdivOptionsNs[] = {
+      1000U,     2000U,     5000U,    10000U,   20000U,    50000U,
+      100000U,   200000U,   500000U,  1000000U, 2000000U,  5000000U,
+      10000000U, 20000000U, 50000000U, 100000000U};
+  uint32_t sdiv_ns;
+  uint64_t total_ns;
   uint64_t needed;
 
-  if (sdiv_idx >= (sizeof(kSdivOptionsUs) / sizeof(kSdivOptionsUs[0]))) {
-    sdiv_idx = (uint8_t)((sizeof(kSdivOptionsUs) / sizeof(kSdivOptionsUs[0])) - 1U);
+  if (sdiv_idx >= (sizeof(kSdivOptionsNs) / sizeof(kSdivOptionsNs[0]))) {
+    sdiv_idx = (uint8_t)((sizeof(kSdivOptionsNs) / sizeof(kSdivOptionsNs[0])) - 1U);
   }
-  sdiv_us = kSdivOptionsUs[sdiv_idx];
-  total_us = sdiv_us * 10U;
-  needed = ((uint64_t)s_source_sample_rate_hz * (uint64_t)total_us + 500000ULL) / 1000000ULL;
-  if (needed < (uint64_t)sample_count) {
-    needed = (uint64_t)sample_count;
+  sdiv_ns = kSdivOptionsNs[sdiv_idx];
+  total_ns = (uint64_t)sdiv_ns * 10ULL;
+  needed = ((uint64_t)s_source_sample_rate_hz * total_ns + 500000000ULL) / 1000000000ULL;
+  if (needed < 1ULL) {
+    needed = 1ULL;
   }
   if (needed > (uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES) {
     needed = (uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES;
@@ -272,10 +273,7 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   uint16_t write_idx2;
   uint16_t anchor_idx;
   uint32_t span;
-  uint32_t base_step;
-  uint32_t step_rem;
   uint32_t src_off;
-  uint32_t step_acc;
   uint32_t search_span;
   uint32_t search_start;
   int32_t trigger_offset;
@@ -306,9 +304,6 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
 
   // Raw span is how many input DMA samples this output frame represents.
   span = needed_raw_span;
-  if (span < (uint32_t)sample_count) {
-    span = (uint32_t)sample_count;
-  }
   if (span > SCOPE_STREAM_ADC_BUFFER_SAMPLES) {
     span = SCOPE_STREAM_ADC_BUFFER_SAMPLES;
   }
@@ -392,14 +387,10 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
   }
 
   // Copy decimated samples into interleaved USB payload.
-  base_step = span / (uint32_t)sample_count;
-  if (base_step == 0U) {
-    base_step = 1U;
-  }
-  step_rem = span % (uint32_t)sample_count;
-  src_off = 0U;
-  step_acc = 0U;
   for (uint16_t i = 0U; i < sample_count; ++i) {
+    // Fractional mapping supports both decimation (span > samples) and
+    // upsampling/duplication (span < samples) while preserving total span.
+    src_off = ((uint32_t)i * span) / (uint32_t)sample_count;
     uint32_t src_idx = (start_idx + src_off) % SCOPE_STREAM_ADC_BUFFER_SAMPLES;
     // Logical channel swap:
     // - protocol CH1 uses ADC2
@@ -413,12 +404,6 @@ static bool ScopeStream_CopyLatestInterleaved(uint8_t *dst,
     dst[out + 2U] = (uint8_t)(ch2 & 0xFFU);
     dst[out + 3U] = (uint8_t)((ch2 >> 8U) & 0xFFU);
 
-    src_off += base_step;
-    step_acc += step_rem;
-    if (step_acc >= (uint32_t)sample_count) {
-      src_off += 1U;
-      step_acc -= (uint32_t)sample_count;
-    }
   }
 
   return trigger_found;

@@ -58,9 +58,10 @@
 /* USER CODE BEGIN PV */
 static const uint32_t kVdivOptions_mV[] = {100U,  200U,  500U,  1000U,
                                            2000U, 5000U, 10000U};
-static const uint32_t kSdivOptions_us[] = {
-    5U,    10U,   20U,   50U,    100U,   200U,   500U,
-    1000U, 2000U, 5000U, 10000U, 20000U, 50000U, 100000U};
+static const uint32_t kSdivOptions_ns[] = {
+    1000U,     2000U,     5000U,    10000U,   20000U,    50000U,
+    100000U,   200000U,   500000U,  1000000U, 2000000U,  5000000U,
+    10000000U, 20000000U, 50000000U, 100000000U};
 static const uint32_t kAdcFastSampleRateHz = 2833333U;
 static const uint32_t kAdcMinSampleRateHz = 1000U;
 
@@ -69,7 +70,7 @@ static scope_cfg_t g_scope_cfg = {
     .ch2_enabled = 1U,
     .ch1_vdiv_idx = 2U, // 1.00 V/div
     .ch2_vdiv_idx = 2U, // 1.00 V/div
-    .sdiv_idx = 2U,     // 200 us/div
+    .sdiv_idx = 4U,     // 20 us/div
     // Trigger bytes: each encoder step maps to 16 ADC codes, so 0..255 ->
     // 0..4080.
     .trig_ch1_idx = 128U,
@@ -121,15 +122,16 @@ static uint32_t ScopeCtl_GetTim6ClockHz(void) {
 // - keep max speed at fast timebases,
 // - slow down at wide timebases so 10 divisions fit DMA history.
 static uint32_t ScopeCtl_ComputeTargetSampleRateHz(uint8_t sdiv_idx) {
-  uint32_t total_us;
+  uint64_t total_ns;
   uint64_t max_fit_rate;
   uint32_t target;
 
-  if (sdiv_idx >= (sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0]))) {
-    sdiv_idx = (uint8_t)((sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0])) - 1U);
+  if (sdiv_idx >= (sizeof(kSdivOptions_ns) / sizeof(kSdivOptions_ns[0]))) {
+    sdiv_idx = (uint8_t)((sizeof(kSdivOptions_ns) / sizeof(kSdivOptions_ns[0])) - 1U);
   }
-  total_us = kSdivOptions_us[sdiv_idx] * 10U;
-  max_fit_rate = ((uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES * 1000000ULL) / (uint64_t)total_us;
+  total_ns = (uint64_t)kSdivOptions_ns[sdiv_idx] * 10ULL;
+  max_fit_rate =
+      ((uint64_t)SCOPE_STREAM_ADC_BUFFER_SAMPLES * 1000000000ULL) / total_ns;
 
   target = kAdcFastSampleRateHz;
   if (max_fit_rate < (uint64_t)target) {
@@ -253,7 +255,7 @@ static void ScopeCtl_FromFrontPanel_1ms(void) {
 
   if (g_enc3.delta != 0) {
     int max_idx =
-        (int)(sizeof(kSdivOptions_us) / sizeof(kSdivOptions_us[0])) - 1;
+        (int)(sizeof(kSdivOptions_ns) / sizeof(kSdivOptions_ns[0])) - 1;
     int next = clamp_idx_with_delta((int)g_scope_cfg.sdiv_idx,
                                     (int)g_enc3.delta, 0, max_idx);
     if ((uint8_t)next != g_scope_cfg.sdiv_idx) {
