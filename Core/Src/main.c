@@ -20,9 +20,9 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
+#include "gpio.h"
 #include "tim.h"
 #include "usb_device.h"
-#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -59,8 +59,8 @@
 static const uint32_t kVdivOptions_mV[] = {100U,  200U,  500U,  1000U,
                                            2000U, 5000U, 10000U};
 static const uint32_t kSdivOptions_ns[] = {
-    1000U,     2000U,     5000U,    10000U,   20000U,    50000U,
-    100000U,   200000U,   500000U,  1000000U, 2000000U,  5000000U,
+    1000U,     2000U,     5000U,     10000U,    20000U,   50000U,
+    100000U,   200000U,   500000U,   1000000U,  2000000U, 5000000U,
     10000000U, 20000000U, 50000000U, 100000000U};
 static const uint32_t kAdcFastSampleRateHz = 2833333U;
 static const uint32_t kAdcMinSampleRateHz = 1000U;
@@ -127,7 +127,8 @@ static uint32_t ScopeCtl_ComputeTargetSampleRateHz(uint8_t sdiv_idx) {
   uint32_t target;
 
   if (sdiv_idx >= (sizeof(kSdivOptions_ns) / sizeof(kSdivOptions_ns[0]))) {
-    sdiv_idx = (uint8_t)((sizeof(kSdivOptions_ns) / sizeof(kSdivOptions_ns[0])) - 1U);
+    sdiv_idx =
+        (uint8_t)((sizeof(kSdivOptions_ns) / sizeof(kSdivOptions_ns[0])) - 1U);
   }
   total_ns = (uint64_t)kSdivOptions_ns[sdiv_idx] * 10ULL;
   max_fit_rate =
@@ -191,7 +192,8 @@ static void ScopeCtl_UpdateAdcTimingFromSdiv(void) {
   if (s_last_sdiv_applied == g_scope_cfg.sdiv_idx) {
     return;
   }
-  ScopeCtl_ApplyAdcSampleRateHz(ScopeCtl_ComputeTargetSampleRateHz(g_scope_cfg.sdiv_idx));
+  ScopeCtl_ApplyAdcSampleRateHz(
+      ScopeCtl_ComputeTargetSampleRateHz(g_scope_cfg.sdiv_idx));
   s_last_sdiv_applied = g_scope_cfg.sdiv_idx;
 }
 
@@ -331,11 +333,10 @@ void USB_Report_Buttons_20ms(void) {
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
-int main(void)
-{
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void) {
 
   /* USER CODE BEGIN 1 */
 
@@ -343,7 +344,8 @@ int main(void)
 
   /* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick.
+   */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
@@ -403,22 +405,22 @@ int main(void)
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-{
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void) {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
-  */
+   */
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
 
   /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSE;
+   * in the RCC_OscInitTypeDef structure.
+   */
+  RCC_OscInitStruct.OscillatorType =
+      RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -428,22 +430,20 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
     Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK |
+                                RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
-  {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
     Error_Handler();
   }
 }
@@ -453,11 +453,10 @@ void SystemClock_Config(void)
 /* USER CODE END 4 */
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void) {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
@@ -467,14 +466,13 @@ void Error_Handler(void)
 }
 #ifdef USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
+void assert_failed(uint8_t *file, uint32_t line) {
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line
      number, ex: printf("Wrong parameters value: file %s on line %d\r\n", file,
